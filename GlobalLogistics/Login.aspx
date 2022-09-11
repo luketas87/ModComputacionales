@@ -177,7 +177,7 @@ body{
 				<input type="text" placeholder="Usuario" id="txtUser" runat="server"><br>
 				<input type="password" placeholder="Password" id="txtPassword" runat="server" name="textPassword"><br>
 				<input type="button" value="Login" onserverclick="BtnLogin_Click" runat="server" id="btnLogin"><br>
-				PUTO EL QUE LEE<br>	
+				
 				<label id="lblError" runat="server"></label>
 		 </div>
     </form>
