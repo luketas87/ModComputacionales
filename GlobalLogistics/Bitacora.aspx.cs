@@ -19,5 +19,32 @@ namespace GlobalLogistics
             GridView1.DataSource = mBitacora;
             GridView1.DataBind();
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //string TextToSearch = TextSearch.Text;
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = dataGridView.DataSource;
+            //bs.Filter = $"[Columna] LIKE '%'{TextToSearch}'%' AND [Columna] LIKE '%'{TextToSearch}'%'";
+            //dataGridView.DataSource = bs;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int bUsuario = int.Parse(TxtUsuario.Text);
+            int bNivel = int.Parse(TxtNivel.Text);
+
+            //GridView1.DataSource = mBitacora.Where(x => x.cuenta_usuario_id == bUsuario);
+            var datagrid = from bitacora in this.mBitacora
+                           where bitacora.cuenta_usuario_id == bUsuario && bitacora.bitacora_criticidad == bNivel 
+                           select bitacora; 
+            this.GridView1.DataSource = null;
+            GridView1.DataSource = datagrid;
+        }
     }
 }
