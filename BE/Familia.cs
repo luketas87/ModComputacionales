@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BE
 {
-    public class Familia
+    public class Familia : ComponentePermiso
     {
         public int familia_id
         {
@@ -18,15 +18,39 @@ namespace BE
 
         public List<Patente> mPatentes;
 
-        public Familia()
-        {
-            mPatentes = new List<Patente>();
-        }
+        //public Familia()
+        //{
+        //    mPatentes = new List<Patente>();
+        //}
 
         public Familia(int pId)
         {
             mPatentes = new List<Patente>();
-            familia_id = pId;
+            Id = pId;
+        }
+
+        private IList<ComponentePermiso> _hijos;
+        public Familia()
+        {
+            _hijos = new List<ComponentePermiso>();
+        }
+
+        public override IList<ComponentePermiso> Hijos
+        {
+            get
+            {
+                return _hijos.ToArray();
+            }
+
+        }
+
+        public override void VaciarHijos()
+        {
+            _hijos = new List<ComponentePermiso>();
+        }
+        public override void AgregarHijo(ComponentePermiso c)
+        {
+            _hijos.Add(c);
         }
     }
 }

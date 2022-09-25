@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAO
     {
-        public SqlConnection mCon = new SqlConnection("Data Source=.;Initial Catalog=GlobalLogistics;Integrated Security=True");
+        public SqlConnection mCon = new SqlConnection(ConfigurationManager.ConnectionStrings["StringConexion"].ConnectionString);
 
         public DataSet ExecuteDataSet(string pCadenaComando)
         {
@@ -29,7 +29,7 @@ namespace DAL
                 SqlCommand mCom = new SqlCommand(pCommandText, this.mCon);
                 this.mCon.Open();
                 int resultado = mCom.ExecuteNonQuery();
-                SqlConnection mCon = new SqlConnection("Data Source=.;Initial Catalog=GlobalLogistics;Integrated Security=True");
+                SqlConnection mCon = new SqlConnection(ConfigurationManager.ConnectionStrings["StringConexion"].ConnectionString);
                 return resultado;
             }
             catch

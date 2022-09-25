@@ -27,6 +27,10 @@ namespace BE
         {
             get; set;
         }
+        public List<ComponentePermiso> Permisos
+        {
+            get;set;
+        }
 
         public int cuenta_usuario_activa { get; set; } = 1;
         public CuentaUsuario()
