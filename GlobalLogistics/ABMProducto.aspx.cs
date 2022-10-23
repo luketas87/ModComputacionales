@@ -23,6 +23,9 @@ namespace GlobalLogistics
             mProductos = ProductoBL.Listar();
             grdProductos.DataSource = mProductos;
             grdProductos.DataBind();
+
+            DataList1.DataSource = mProductos;
+            DataList1.DataBind();
         }
 
         protected void grdProductos_SelectedIndexChanged(object sender, EventArgs e)

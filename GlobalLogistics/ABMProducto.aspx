@@ -119,6 +119,8 @@
         <asp:Button class="Buttons" ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
         &nbsp;&nbsp;
         <asp:Button class="Buttons" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+        <asp:DataList ID="DataList1" runat="server">
+        </asp:DataList>
     </form>
 </body>
 </html>

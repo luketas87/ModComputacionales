@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BE
 {
-    public class Patente
+    public class Patente : ComponentePermiso
     {
         public int patente_id
         {
@@ -22,7 +22,26 @@ namespace BE
         }
         public Patente(int pId)
         {
-            patente_id = pId;
+            Id = pId;
+        }
+
+        public override IList<ComponentePermiso> Hijos
+        {
+            get
+            {
+                return new List<ComponentePermiso>();
+            }
+
+        }
+
+        public override void AgregarHijo(ComponentePermiso c)
+        {
+
+        }
+
+        public override void VaciarHijos()
+        {
+
         }
 
     }
