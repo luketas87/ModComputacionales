@@ -98,11 +98,17 @@ h1 {
 <body class="main-background" style="left: 56px; top: 0px; width: 92%">
     <form id="form1" runat="server" translate="0.2">
         <h1>Bitácora</h1>
-        <br /><br /><br /><br />
+        <br />Usuario:
+        <asp:TextBox ID="TxtUsuario" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nivel de criticidad:
+        <asp:TextBox ID="TxtNivel" runat="server" ToolTip="Fecha Hasta"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Filtrar" />
+        <br /><br /><br />
         <div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True" GridLines="None"
                 AllowPaging="true" CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
-                PageSize="200">
+                PageSize="200" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 
             </asp:GridView>
         </div>
