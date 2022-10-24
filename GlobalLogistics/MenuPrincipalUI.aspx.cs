@@ -99,7 +99,7 @@ namespace GlobalLogistics
         {
             if (Convert.ToBoolean(this.Session["UsuarioLoggeado"]))
             {
-                Response.Redirect("ABMProducto.aspx");
+                Response.Redirect("Permisos.aspx");
             }
             else
             {

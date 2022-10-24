@@ -10,5 +10,12 @@ namespace BE
         {
             VerBitacora,
             RecalcularDV,
+            ModificarStockCliente,
+            ABMProductos,
+            CrearUsuario,
+            RealizarBackup,
+            RealizarRestore,
+            VerPermisos,
+            ModificarPermisos
         }
 }

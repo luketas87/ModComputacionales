@@ -50,10 +50,10 @@ namespace DAL
                 string pCadenaComando;
                 p.Id = ProximoId();
 
-                if (esfamilia) 
-                { 
-                pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '')";
-                GuardarFamilia((Familia)p);
+                if (esfamilia)
+                {
+                    pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '')";
+                    GuardarFamilia((Familia)p);
                 }
                 else
                     pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '" + p.Permiso + "')";
@@ -105,7 +105,7 @@ namespace DAL
         {
             DAO mDAObject = new DAO();
             string pCadenaComando;
-            pCadenaComando = $@"select * from permiso p where p.permiso is not null;";
+            pCadenaComando = $@"select * from permiso p where p.permiso_desc is not null;";
             List<Patente> mPatentes = new List<Patente>();
             DataSet mDs = new DataSet();
             mDs = mDAObject.ExecuteDataSet(pCadenaComando);
@@ -125,7 +125,7 @@ namespace DAL
         {
             DAO mDAObject = new DAO();
             string pCadenaComando;
-            pCadenaComando = $@"select * from permiso p where p.permiso is null;";
+            pCadenaComando = $@"select * from permiso p where p.permiso_desc is null;";
             List<Familia> mFamilias = new List<Familia>();
             DataSet mDs = new DataSet();
             mDs = mDAObject.ExecuteDataSet(pCadenaComando);
@@ -137,7 +137,7 @@ namespace DAL
                     ValorizarEntidad(mFamilia, mDr);
                     GetHijos(mFamilia);
                     mFamilias.Add(mFamilia);
-                } 
+                }
             }
             return mFamilias;
         }
@@ -206,11 +206,19 @@ namespace DAL
             string pCadenaComando;
             pCadenaComando = "delete from usuario_permiso where usuario_id = " + pCuentaUsuario.Cuenta_usuario_id;
             mDAObject.ExecuteNonQuery(pCadenaComando);
-            foreach(ComponentePermiso P in pCuentaUsuario.Permisos)
+            foreach (ComponentePermiso P in pCuentaUsuario.Permisos)
             {
                 pCadenaComando = "insert into usuario_permiso values(" + pCuentaUsuario.Cuenta_usuario_id + ", " + P.Id + ")";
                 mDAObject.ExecuteNonQuery(pCadenaComando);
             }
+        }
+
+        public static void EliminarPermisos(CuentaUsuario pCuentaUsuario)
+        {
+            DAO mDAObject = new DAO();
+            string pCadenaComando;
+            pCadenaComando = "delete from usuario_permiso where usuario_id = " + pCuentaUsuario.Cuenta_usuario_id;
+            mDAObject.ExecuteNonQuery(pCadenaComando);
         }
     }
 }

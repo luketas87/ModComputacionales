@@ -163,7 +163,18 @@
              cursor:pointer;
 
         }
-    </style>
+          #btnProductos0{
+             border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            background-color: #1199EE;
+             color:white;
+             box-shadow:2px 2px 30px #000;
+             border-radius:5px;
+            margin-top: 0px;
+        }
+
+        </style>
 </head>
 <body style="background-image:url(https://i.ibb.co/YRyZzVx/store-g0842e754b-1920.jpg)">
     <form id="form1" runat="server">
@@ -204,6 +215,7 @@
             <asp:Button ID="btnProductos" runat="server" OnClick="btnProductos_Click1" Text="Productos" Height="38px" />
             <br />
             <br />
+            <asp:Button ID="btnPermisos" runat="server" OnClick="btnProductos_Click1" Text="Permisos" Height="38px" />
             <br />
             
             <br />

@@ -17,6 +17,16 @@ namespace BLL
             list.AddRange(PermisosDAL.GetAllPatentes());
             return list;
         }
+
+        public static IList<Patente> GetAllPatentes()
+        {
+            return PermisosDAL.GetAllPatentes();
+        }
+
+        public static IList<Familia> GetAllFamilias()
+        {
+            return PermisosDAL.GetAllFamilias();
+        }
         public static void GetPermissions(CuentaUsuario pCuentaUsuario)
         {
             pCuentaUsuario.Permisos = PermisosDAL.GetPermissions(pCuentaUsuario);

@@ -71,6 +71,7 @@
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
+    <Content Include="Permisos.aspx" />
     <Content Include="Verificadores.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="MenuPrincipalUI.aspx.designer.cs">
       <DependentUpon>MenuPrincipalUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos.aspx.cs">
+      <DependentUpon>Permisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Permisos.aspx.designer.cs">
+      <DependentUpon>Permisos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
