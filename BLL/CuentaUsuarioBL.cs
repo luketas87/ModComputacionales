@@ -74,7 +74,7 @@ namespace BLL
                 {
                     string mNuevaClave = GenerarClaveAleatoria();
                     mCuentaUsuario.Cuenta_usuario_password = mEncriptador.EncriptarIrreversible(mNuevaClave);
-                    //ControlArchivos.EscribirArchivo("NuevaClave.txt", mNuevaClave);
+                    ControlArchivos.EscribirArchivo("NuevaClave.txt", mNuevaClave);
                     mCuentaUsuario.Cuenta_usuario_intentos_login = 0;
                     mRegistro.bitacora_transaccion_id = 4;
                     mRegistro.bitacora_criticidad = 1;

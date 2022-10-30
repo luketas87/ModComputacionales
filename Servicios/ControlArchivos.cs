@@ -8,7 +8,7 @@ namespace Servicios
 {
     public class ControlArchivos
     {
-        public static string rutaPredeterminada = @"..\..\..\";
+        public static string rutaPredeterminada = @"C:/Users/Fabrizio/Desktop/UAI/Modelos Computacionales/Proyecto - copia/Claves";
         public string LeerArchivo(string pDireccion)
         {
             string text = System.IO.File.ReadAllText(pDireccion);

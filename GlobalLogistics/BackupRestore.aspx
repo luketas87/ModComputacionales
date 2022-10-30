@@ -25,7 +25,7 @@
         }
     </style>
 </head>
-<body style="background-image:url(https://i.ibb.co/x5XKGvY/servidor-web.jpg); font-family:Arial;";>
+<body style="background-image:url(http://www.twago.es/blog/wp-content/uploads/2016/03/google-servidores-7.jpg); font-family:Arial;";>
     <form id="form1" runat="server">
         <div class="Labels">
             <b>BACKUP:</b><br />

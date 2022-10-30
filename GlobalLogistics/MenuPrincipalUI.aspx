@@ -212,7 +212,7 @@
             <asp:Button ID="btnBackup" runat="server" OnClick="btnBackup_Click" Text="BackupRestore" Height="38px" />
             <br />
             <br />
-            <asp:Button ID="btnProductos" runat="server" OnClick="btnProductos_Click1" Text="Productos" Height="38px" />
+            <asp:Button ID="btnProductos" runat="server" OnClick="btnProductos_Click" Text="Productos" Height="38px" />
             <br />
             <br />
             <asp:Button ID="btnPermisos" runat="server" OnClick="btnProductos_Click1" Text="Permisos" Height="38px" />

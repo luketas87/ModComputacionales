@@ -13,13 +13,13 @@ namespace DAL
 {
     public class PermisosDAL
     {
-        public static int mId;
+        public static int mId=0;
         public static int ProximoId()
         {
             if (mId == 0)
             {
                 DAO mDAObject = new DAO();
-                mId = mDAObject.ObtenerId("Cuenta_usuario");
+                mId = mDAObject.ObtenerId("permiso");
             }
             mId += 1;
             return mId;

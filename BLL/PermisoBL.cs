@@ -56,5 +56,10 @@ namespace BLL
             return PermisosDAL.GetAllPermission();
         }
 
+        public static void GetHijos(Familia pFamilia)
+        {
+             PermisosDAL.GetHijos(pFamilia);
+        }
+
     }
 }
