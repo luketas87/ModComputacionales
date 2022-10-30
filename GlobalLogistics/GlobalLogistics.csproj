@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GlobalLogistics</RootNamespace>
     <AssemblyName>GlobalLogistics</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44386</IISExpressSSLPort>
@@ -70,6 +70,7 @@
     <Content Include="ABMUsuario.aspx" />
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="ProductoUI.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Verificadores.aspx" />
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductoUI.aspx.cs">
+      <DependentUpon>ProductoUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductoUI.aspx.designer.cs">
+      <DependentUpon>ProductoUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipalUI.aspx.cs">
       <DependentUpon>MenuPrincipalUI.aspx</DependentUpon>

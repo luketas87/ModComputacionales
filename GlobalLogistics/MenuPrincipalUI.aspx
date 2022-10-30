@@ -4,225 +4,241 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Menu</title>
-    <link rel="shortcut icon" href="https://i.imgur.com/jd9iHlx.png">
-	<style>body {
-  margin: 0;
-  padding: 0;
-  background-color: #222;
-}
-
-* {
-  font-family: Helvetica,sans-serif;
-  color: #555;
-}
-
-#mmeennuu {
-  display: none;
-}
-
-#mmeennuu:checked ~ .menu {
-  width: 500px;
-  border-radius: 5px;
-  background-color:RGBA(17,153,238,0.2);
-  border: 3px solid #1199EE;
-  height: 85px;
-}
-#mmeennuu:checked ~ .menu > ul {
-  display: block;
-  opacity: 1;
-}
-#mmeennuu:checked ~ .menu > .barry {
-  display: none;
-}
-
-.menu {
-  display: block;
-  margin: 30px auto;
-  width: 100px;
-  height: 100px;
-  background-color: #1199EE;
-  border: 3px solid transparent;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-}
-.menu div.barry {
-  width: 40px;
-  margin: 35px auto;
-}
-.menu div.barry .bar {
-  display: block;
-  width: 100%;
-  height: 5px;
-  margin-top: 3px;
-  border-radius: 2px;
-  background-color: #fff;
-}
-.menu ul {
-  opacity: 0;
-  display: none;
-  transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  list-style-type: none;
-  padding: 0;
-  width: 500px;
-  text-align: center;
-  margin-bottom: 0;
-}
-.menu ul li {
-  display: inline-block;
-}
-
-.alerta {
-  vertical-align: bottom
-}
-
-.menu ul li a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 25px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  border: 3px solid transparent;
-  border-radius: 5px;
-  text-shadow:2px 2px 4px #000000;
-}
-.menu ul li a:hover {
-  border-color: #1199EE;
-}
-.menu ul li a:target {
-  border-bottom-color: #1199EE;
-}
-        .alerrta {
-            margin-left: 40px;
-        }
-        #Button1{
-            position:absolute;
-            right:70px;
-            padding:10px 40px 10px 40px;
-             background-color: #1199EE;
-             border:none;
-             color:white;
-             box-shadow:2px 2px 30px #000;
-             border-radius:5px;
-        }
-        .labels{
-            position:absolute;
-            left:50px;
-            padding:0px 150px 0px 0px;
-        }
-
-        #Button1:hover{
-                                      background-color: #117bee;
-                                      cursor:pointer;
-
-        }
-
-        #btnBackup{
-             background-color: #1199EE;
-             border:none;
-             color:white;
-             box-shadow:2px 2px 30px #000;
-             border-radius:5px;
-        }
-
-        #btnBackup:hover{
-             background-color: #117bee;
-             cursor:pointer;
-
-        }
-          #btnProductos{
-             border-style: none;
-            border-color: inherit;
-            border-width: medium;
-            background-color: #1199EE;
-             color:white;
-             box-shadow:2px 2px 30px #000;
-             border-radius:5px;
-            margin-top: 0px;
-        }
-
-        #btnProductos:hover{
-             background-color: #117bee;
-             cursor:pointer;
-
-        }
-          #btnProductos0{
-             border-style: none;
-            border-color: inherit;
-            border-width: medium;
-            background-color: #1199EE;
-             color:white;
-             box-shadow:2px 2px 30px #000;
-             border-radius:5px;
-            margin-top: 0px;
-        }
-
-        </style>
+            <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Global Logistics</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
-<body style="background-image:url(https://i.ibb.co/YRyZzVx/store-g0842e754b-1920.jpg)">
-    <form id="form1" runat="server">
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
-    <input type='checkbox' id='mmeennuu'/>
-<label class='menu' for='mmeennuu'/>
+<body class="sb-nav-fixed">>
+     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index2.html">Inicio</a> 
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <!--<div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>-->
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Panel de control</a></li>
+                        <li><a class="dropdown-item" href="#!">Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Negocio</div>
+                            <a class="nav-link" href="ProductoUI.aspx">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Productos
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Apps
+                                    <div class="sb-sidenav-collapse-arrow"></div>
+                                </a>
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
 
-<div class='barry'>
-	<span class='bar'></span>
-	<span class='bar'></span>
-	<span class='bar'></span>
-	<span class='bar'></span>
-</div>
+                                        <!--Administrar usuarios-->
+                                        <a class="nav-link" href="register.html">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                                            Usuarios
+         
+                                        </a>
 
-<ul>
-	<li><a id='bitacora' href='Bitacora.aspx' runat="server" visible="false">Bitacora</a></li>
-	<li><a id='usuario' href='ABMUsuario.aspx' runat="server" visible="False">Usuarios</a></li>
-	<li><a id='digitos' href='Verificadores.aspx' runat="server" visible="false">Dígitos Verificadores</a></li>
-</ul>
-        </label>
-        	            
+                                        <!--Asignar Permisos-->
+                                        <a class="nav-link" href="register.html">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
+                                            Asignar Permisos
+                                        </a>
 
-        <div style="margin-left: 40px">
-            <br />
-            <asp:Label style="top:50px;" class="labels" ID="lblUser" runat="server" Text="Label" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White"></asp:Label>
-            <br />
-            <br />
-            <asp:Label style="top:80px;" class="labels" ID="lblRol" runat="server" Text="Label" Font-Bold="True" Font-Names="Arial" Font-Size="Large" ForeColor="White"></asp:Label>
-            <br />
-            <br />
-            <br />
-            <!---->
-            <br />
-            <br />
-            <asp:Button ID="btnBackup" runat="server" OnClick="btnBackup_Click" Text="BackupRestore" Height="38px" />
-            <br />
-            <br />
-            <asp:Button ID="btnProductos" runat="server" OnClick="btnProductos_Click" Text="Productos" Height="38px" />
-            <br />
-            <br />
-            <asp:Button ID="btnPermisos" runat="server" OnClick="btnProductos_Click1" Text="Permisos" Height="38px" />
-            <br />
-            
-            <br />
-        </div>
-        <div class="alerrta">
-            <asp:Label ID="lblDVVDVH" runat="server" Text="Label" Font-Bold="True" Font-Names="Arial" Font-Size="Larger" ForeColor="#C60000" Visible="False"></asp:Label>
+                                        <!--DVH-->
+                                        <a class="nav-link" href="index.html">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
+                                            Recalcular DVH
+                                        </a>
+
+                                        <!--Backup & Restore-->
+                                        <a class="nav-link" href="index.html">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                                            Backup & Restore
+                                        </a>
+
+                                        <!--Bitácora-->
+                                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                            Bitácora
+                                        </a>
+                                    </nav>
+
+                                </div>
+                                <!-- Backup & Restore-->
+                                <!--<a class="nav-link" href="index.html">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Backup & Restore
+                                </a>-->
+                                
+                                <!-- Colapsado Bitácora-->
+
+                                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"></nav>   
+                                </div>
+                            </a>
+                            
+
+                    <div class="sb-sidenav-footer">
+                         <!-- Traer el usuario logueado-->
+                        <div class="small">Logueado como: </div>
+                        <!-- Start Bootstrap-->
+                    </div>
+                </nav>
             </div>
-    </form>
+
+            <!-- Seccion fondo-->
+            <div id="layoutSidenav_content">
+                <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Dashboard</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Bitácora</li>
+                </ol>
+                <!--<div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body">Primary Card</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-warning text-white mb-4">
+                            <div class="card-body">Warning Card</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body">Success Card</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body">Danger Card</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <!--<div class="card-header">-->
+                                <!--<i class="fas fa-chart-area me-1"></i>-->
+                                <!--Area Chart Example-->
+                            <!--</div>-->
+                            <!--<div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>-->
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <!--<div class="card-header">-->
+                                <!--<i class="fas fa-chart-bar me-1"></i>-->
+                                <!--Bar Chart Example-->
+                            <!--</div>-->
+                            <!--<div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        <!-- Tabla de registros-->
+                        Registros
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple" onload="">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Criticidad</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <!--<tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                </tr>-->
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>Baja</td>
+                                    <td>Edinburgh</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Alta</td>
+                                    <td>Tokyo</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Global Logistics 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts2.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>
