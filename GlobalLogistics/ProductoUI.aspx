@@ -13,20 +13,107 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+            <style type="text/css">
+
+            .main-background {
+                background-image: url(https://i.ibb.co/drgvK9q/4M2.jpg);
+                width: 70%;
+                height: 70%;
+                position: absolute;
+            }
+
+            * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 11px Tahoma;
+}
+
+h1 {
+    font: bold 32px Times;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#container {
+    width: 700px;
+    margin: 10px auto;
+}
+
+.mGrid {
+    width: 100%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+
+    .mGrid td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+
+    .mGrid th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #424242 url(grd_head.png) repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    .mGrid .alt {
+        background: #fcfcfc url(grd_alt.png) repeat-x top;
+    }
+
+    .mGrid .pgr {
+        background: #424242 url(grd_pgr.png) repeat-x top;
+    }
+
+        .mGrid .pgr table {
+            margin: 5px 0;
+        }
+
+        .mGrid .pgr td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .mGrid .pgr a {
+            color: #666;
+            text-decoration: none;
+        }
+
+            .mGrid .pgr a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+           /* #GridView1{
+                opacity: 0.4;
+            }*/
+        </style>
 </head>
-<body class="sb-nav-fixed">>
+<body class="sb-nav-fixed">
+    <form id="form1" runat="server">
+        >
      <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index2.html">Inicio</a> 
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <!--<div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>-->
-            </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -116,9 +203,9 @@
             <div id="layoutSidenav_content">
                 <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Dashboard</h1>
+                <h1 class="mt-4">Productos</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Bitácora</li>
+                    <li class="breadcrumb-item active">Productos</li>
                 </ol>
                 <!--<div class="row">
                     <div class="col-xl-3 col-md-6">
@@ -176,44 +263,29 @@
                             <!--</div>-->
                             <!--<div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>-->
                         </div>
+                        
                     </div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         <!-- Tabla de registros-->
-                        Registros
+                        Registros &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label1" runat="server" Text="ID"></asp:Label><asp:TextBox ID="txtID" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label><asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
                     </div>
                     <div class="card-body">
-                        <table id="datatablesSimple" onload="">
-                            <thead>
-                                <tr>
-                                    <th>Usuario</th>
-                                    <th>Criticidad</th>
-                                    <th>Fecha</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <!--<tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                </tr>-->
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>Baja</td>
-                                    <td>Edinburgh</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Alta</td>
-                                    <td>Tokyo</td>
-                                </tr>
+                        
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="True" GridLines="None"
+                AllowPaging="true" CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnPageIndexChanging="GridView2_PageIndexChanging">
+                        </asp:GridView>
 
-                            </tbody>
-                        </table>
+
+
+
                     </div>
                 </div>
             </div>
@@ -240,5 +312,6 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+    </form>
 </body>
 </html>

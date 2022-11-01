@@ -16,6 +16,7 @@ namespace GlobalLogistics
         protected void Page_Load(object sender, EventArgs e)
         {
             Actualizar();
+            
         }
 
         public void Actualizar()
