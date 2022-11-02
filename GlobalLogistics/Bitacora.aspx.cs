@@ -15,9 +15,17 @@ namespace GlobalLogistics
         List<BE.Bitacora> mBitacora = new List<BE.Bitacora>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Actualizar();
+            
+        }
+
+        public void Actualizar()
+        {
             mBitacora = BitacoraBL.Listar();
+
             GridView1.DataSource = mBitacora;
             GridView1.DataBind();
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,16 +44,30 @@ namespace GlobalLogistics
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //int bUsuario = int.Parse(TxtUsuario.Text);
-            int bNivel = int.Parse(TxtNivel.Text);
+            int bUsuario = 0;
+            int bNivel = 0;
 
-            GridView1.DataSource = mBitacora.Where(x => x.bitacora_criticidad == bNivel);
-            //var datagrid = from bitacora in this.mBitacora
-            //               where bitacora.cuenta_usuario_id == bUsuario && bitacora.bitacora_criticidad == bNivel 
-            //               select bitacora; 
-            //this.GridView1.DataSource = null;
-            //GridView1.DataSource = datagrid;
+            if (TxtUsuario.Text != "")
+            {
+                bUsuario = int.Parse(TxtUsuario.Text);
+            }
+            
+            if(TxtNivel.Text != "")
+            {
+                bNivel = int.Parse(TxtNivel.Text);
+            }
+            
+
+            var datagrid = from bitacora in this.mBitacora
+                           where bitacora.cuenta_usuario_id == bUsuario && bitacora.bitacora_criticidad == bNivel 
+                           select bitacora; 
+            this.GridView1.DataSource = null;
+            GridView1.DataSource = datagrid.ToList();
+
             GridView1.DataBind();
+            HttpCookie myCookie = new HttpCookie("NivelSeleccionado");
+            myCookie.Value = TxtNivel.Text;
+            Response.Cookies.Add(myCookie);
         }
 
 
