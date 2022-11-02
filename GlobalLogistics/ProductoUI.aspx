@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductoUI.aspx.cs" Inherits="GlobalLogistics.MenuPrincipalUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductoUI.aspx.cs" Inherits="GlobalLogistics.ProductoUI" %>
 
 <!DOCTYPE html>
 
