@@ -36,15 +36,18 @@ namespace GlobalLogistics
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int bUsuario = int.Parse(TxtUsuario.Text);
+            //int bUsuario = int.Parse(TxtUsuario.Text);
             int bNivel = int.Parse(TxtNivel.Text);
 
-            //GridView1.DataSource = mBitacora.Where(x => x.cuenta_usuario_id == bUsuario);
-            var datagrid = from bitacora in this.mBitacora
-                           where bitacora.cuenta_usuario_id == bUsuario && bitacora.bitacora_criticidad == bNivel 
-                           select bitacora; 
-            this.GridView1.DataSource = null;
-            GridView1.DataSource = datagrid;
+            GridView1.DataSource = mBitacora.Where(x => x.bitacora_criticidad == bNivel);
+            //var datagrid = from bitacora in this.mBitacora
+            //               where bitacora.cuenta_usuario_id == bUsuario && bitacora.bitacora_criticidad == bNivel 
+            //               select bitacora; 
+            //this.GridView1.DataSource = null;
+            //GridView1.DataSource = datagrid;
+            GridView1.DataBind();
         }
+
+
     }
 }

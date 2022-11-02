@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace GlobalLogistics
 {
-    public partial class MenuPrincipalUI : System.Web.UI.Page
+    public partial class ProductoUI : System.Web.UI.Page
     {
         List<Producto> mProductos = new List<Producto>();
         Producto mProductoSeleccionado;

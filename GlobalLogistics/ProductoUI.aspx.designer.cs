@@ -11,7 +11,7 @@ namespace GlobalLogistics
 {
 
 
-    public partial class MenuPrincipalUI
+    public partial class ProductoUI
     {
 
         /// <summary>
