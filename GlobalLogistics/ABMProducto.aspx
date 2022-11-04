@@ -121,6 +121,8 @@
         <asp:Button class="Buttons" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
         <asp:DataList ID="DataList1" runat="server">
         </asp:DataList>
+        &nbsp;&nbsp;
+        <asp:Button class="Buttons" ID="btnDescargar" style="margin-top: 2px" runat="server" Text="Descargar a .XML" OnClick="btnDescargar_Click" />
     </form>
 </body>
 </html>
