@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using System.Xml.Serialization;
 using BE;
 using BLL;
 
@@ -62,6 +66,29 @@ namespace GlobalLogistics
             Producto mProducto = ProductoBL.Obtener(Request.Cookies["Nombre Producto"].Value);
             ProductoBL.Eliminar(mProducto);
             Actualizar();
+        }
+
+        protected void btnDescargar_Click(object sender, EventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            mProductos = ProductoBL.Listar();
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream();
+            XmlSerializer serializer = new XmlSerializer(mProductos.GetType());
+            serializer.Serialize(stream, mProductos);
+
+            XmlTextWriter writer = new XmlTextWriter(stream, System.Text.Encoding.UTF8);
+
+            doc.WriteTo(writer);
+            writer.Flush();
+            Response.Clear();
+            byte[] byteArray = stream.ToArray();
+            Response.ContentType = "application/force-download";
+            Response.AddHeader("content-disposition", "attachment; filename=Productos.txt");
+            Response.BinaryWrite(byteArray);
+            Response.End();
+            writer.Close();
         }
     }
 }
