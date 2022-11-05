@@ -42,6 +42,15 @@ namespace GlobalLogistics
         protected global::System.Web.UI.WebControls.Button btnBorrarSeleccion;
 
         /// <summary>
+        /// Control btnAgregarAFamilia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarAFamilia;
+
+        /// <summary>
         /// Control ddlPermisos.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace GlobalLogistics
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdFamilia;
+
+        /// <summary>
+        /// Control grdPatFam.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdPatFam;
 
         /// <summary>
         /// Control gtnGuardarFamilia.

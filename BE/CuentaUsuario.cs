@@ -22,12 +22,16 @@ namespace BE
         public int Cuenta_usuario_intentos_login
         {
             get; set;
-        }
+        } = 0;
         public DateTime Cuenta_fecha_alta
         {
             get; set;
         }
         public List<ComponentePermiso> Permisos
+        {
+            get;set;
+        }
+        public string Cuenta_usuario_email
         {
             get;set;
         }

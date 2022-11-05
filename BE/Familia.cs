@@ -27,6 +27,7 @@ namespace BE
         {
             mPatentes = new List<Patente>();
             Id = pId;
+            _hijos = new List<ComponentePermiso>();
         }
 
         private IList<ComponentePermiso> _hijos;
@@ -50,7 +51,7 @@ namespace BE
         }
         public override void AgregarHijo(ComponentePermiso c)
         {
-            _hijos.Add(c);
+            if(c!=null) _hijos.Add(c);
         }
     }
 }

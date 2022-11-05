@@ -48,16 +48,27 @@ namespace DAL
             {
                 DAO mDAObject = new DAO();
                 string pCadenaComando;
-                p.Id = ProximoId();
-
-                if (esfamilia)
+                if (p.Id == 0)
                 {
-                    pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '')";
-                    GuardarFamilia((Familia)p);
+                    p.Id = ProximoId();
+
+                    if (esfamilia)
+                    {
+                        pCadenaComando = "insert into permiso(permiso_id, permiso_nombre) values (" + p.Id + ", '" + p.Nombre + "')";
+                        GuardarFamilia((Familia)p);
+                    }
+                    else
+                        pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '" + p.Permiso + "')";
                 }
                 else
-                    pCadenaComando = "insert into permiso(permiso_id, permiso_nombre, permiso_desc) values (" + p.Id + ", '" + p.Nombre + "', '" + p.Permiso + "')";
-
+                {
+                    if (esfamilia)
+                    {
+                        pCadenaComando = "update permiso set permiso_nombre = '" + p.Nombre + "' where permiso_id = " + p.Id;
+                        GuardarFamilia((Familia)p);
+                    }
+                    else pCadenaComando = "update permiso set permiso_nombre = '" + p.Nombre + "', permiso_desc = '" + p.Permiso + "' where permiso_id = " + p.Id;
+                }
                 mDAObject.ExecuteNonQuery(pCadenaComando);
                 return p;
             }
@@ -74,13 +85,13 @@ namespace DAL
             {
                 DAO mDAObject = new DAO();
                 string pCadenaComando;
-                pCadenaComando = "delete from permiso_permiso where id_permiso_padre = " + c.Id;
+                pCadenaComando = "delete from permiso_permiso where permiso_padre_id = " + c.Id;
                 mDAObject.ExecuteNonQuery(pCadenaComando);
 
                 foreach (var item in c.Hijos)
                 {
                     string pCadena = "insert into permiso_permiso (permiso_padre_id, permiso_hijo_id) values (" + c.Id + ", " + item.Id + ")";
-                    mDAObject.ExecuteNonQuery(pCadenaComando);
+                    mDAObject.ExecuteNonQuery(pCadena);
                 }
             }
             catch (Exception Ex)

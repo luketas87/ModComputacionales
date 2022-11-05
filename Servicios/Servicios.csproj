@@ -45,6 +45,7 @@
     <Compile Include="ContraseniaIncorrectaException.cs" />
     <Compile Include="ControlArchivos.cs" />
     <Compile Include="CuentaBloqueadaException.cs" />
+    <Compile Include="EmailYaExisteException.cs" />
     <Compile Include="ErrorConsistenciaDVHException.cs" />
     <Compile Include="ErrorConsistenciaDVVException.cs" />
     <Compile Include="NoQuedanUsuariosException.cs" />

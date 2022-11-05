@@ -126,8 +126,16 @@ namespace BLL
         public static int Guardar(CuentaUsuario pCuentaUsuario)
         {
             int a = CuentaUsuarioDAL.Guardar(pCuentaUsuario);
+            DVHBL.ActualizarDV("cuenta_usuario", pCuentaUsuario.Cuenta_usuario_id);
             return a;
         }
+        public static bool ValidarEmail(string pMail)
+        {
+            bool aux =  CuentaUsuarioDAL.ValidarEmail(pMail);
+            if (aux) throw new EmailYaExisteException(); 
+            else return true;
+        }
+
         public static int Eliminar(CuentaUsuario pCuentaUsuario)
         {
             List<CuentaUsuario> mCuentas = Listar();

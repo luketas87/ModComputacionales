@@ -73,6 +73,7 @@
     <Content Include="ProductoUI.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
     <Content Include="Permisos.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Verificadores.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Verificadores.aspx.cs">
       <DependentUpon>Verificadores.aspx</DependentUpon>

@@ -17,21 +17,25 @@ namespace GlobalLogistics
         protected void Page_Load(object sender, EventArgs e)
         {
             ActualizarPatentes();
-            ActualizarFamilia();
+            ActualizarFamilias();
         }
-        IList<ComponentePermiso> mPermisos = new List<ComponentePermiso>();
+        IList<Patente> mPermisos = new List<Patente>();
+
+        IList<Familia> mFamilias = new List<Familia>();
 
         IList<ComponentePermiso> mPatFam;
 
         ComponentePermiso mPatSeleccionada;
 
+        Familia mFamSeleccionada;
+
         public void ActualizarPatentes()
         {
-            mPermisos = PermisoBL.GetPermissions();
+            mPermisos = PermisoBL.GetAllPatentes();
             DataTable mdt = new DataTable();
             mdt.Columns.Add("Nombre", typeof(string));
             mdt.Columns.Add("Descripcion", typeof(string));
-            foreach (Patente p in mPermisos)
+            foreach (Patente p in  mPermisos)
             {
                 DataRow x = mdt.NewRow();
                 x["Nombre"] = p.Nombre;
@@ -51,7 +55,7 @@ namespace GlobalLogistics
         }
         public void ActualizarFamilia()
         {
-            if (mPatSeleccionada.GetType().ToString() == "Familia")
+            if (mPatSeleccionada != null && mPatSeleccionada.GetType().ToString() == "Familia")
             {
                 PermisoBL.GetHijos((Familia)mPatSeleccionada);
                 DataTable mdt = new DataTable();
@@ -89,6 +93,21 @@ namespace GlobalLogistics
                 grdFamilia.DataBind();
 
             }
+        }
+
+        public void ActualizarFamilias()
+        {
+            mFamilias = PermisoBL.GetAllFamilias();
+                DataTable mdt = new DataTable();
+                mdt.Columns.Add("Nombre", typeof(string));
+                foreach (Familia p in mFamilias)
+                {
+                    DataRow x = mdt.NewRow();
+                    x["Nombre"] = p.Nombre;
+                    mdt.Rows.Add(x);
+                }
+                grdFamilia.DataSource = mdt;
+                grdFamilia.DataBind();
         }
 
         public void LimpiarFamilia()
@@ -146,7 +165,36 @@ namespace GlobalLogistics
 
         protected void grdFamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            mFamSeleccionada = mFamilias[grdFamilia.SelectedIndex];
+            Session["FamSeleccionada"] = mFamSeleccionada;
+            Session["indexFamSeleccionada"] = grdFamilia.SelectedIndex;
+            grdFamilia.SelectedRow.BackColor = Color.Aquamarine;
+            ActualizarFamiliaSeleccionada();
+        }
 
+        public void ActualizarFamiliaSeleccionada()
+        {
+
+            DataTable mdt = new DataTable();
+            mdt.Columns.Add("Nombre", typeof(string));
+            mdt.Columns.Add("Descripcion", typeof(string));
+            foreach (Patente p in mFamSeleccionada.Hijos)
+            {
+                DataRow x = mdt.NewRow();
+                x["Nombre"] = p.Nombre;
+                x["Descripcion"] = p.Permiso;
+                mdt.Rows.Add(x);
+            }
+            grdPatFam.DataSource = mdt;
+            grdPatFam.DataBind();
+        }
+
+        protected void btnAgregarAFamilia_Click(object sender, EventArgs e)
+        {
+            mFamSeleccionada = (Familia)Session["FamSeleccionada"];
+            mFamSeleccionada.AgregarHijo(mPermisos[grdPermisos.SelectedIndex]);
+            PermisoBL.GuardarComponente(mFamSeleccionada, true);
+            ActualizarFamiliaSeleccionada();
         }
     }
 }
