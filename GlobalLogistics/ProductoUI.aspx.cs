@@ -8,6 +8,8 @@ using BLL;
 using BE;
 using System.Data;
 using System.Drawing;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace GlobalLogistics
 {
@@ -88,6 +90,29 @@ namespace GlobalLogistics
             //FillGrid();
             GridView2.PageIndex = e.NewPageIndex;
             GridView2.DataBind();
+        }
+
+        protected void btnExportar_Click(object sender, EventArgs e)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            //mProductos = ProductoBL.Listar();
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream();
+            XmlSerializer serializer = new XmlSerializer(mProductos.GetType());
+            serializer.Serialize(stream, mProductos);
+
+            XmlTextWriter writer = new XmlTextWriter(stream, System.Text.Encoding.UTF8);
+
+            doc.WriteTo(writer);
+            writer.Flush();
+            Response.Clear();
+            byte[] byteArray = stream.ToArray();
+            Response.ContentType = "application/force-download";
+            Response.AddHeader("content-disposition", "attachment; filename=Productos.txt");
+            Response.BinaryWrite(byteArray);
+            Response.End();
+            writer.Close();
         }
     }
 }

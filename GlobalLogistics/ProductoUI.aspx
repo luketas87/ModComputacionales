@@ -288,6 +288,7 @@ h1 {
 
                     </div>
                 </div>
+                <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" />
             </div>
         </main>
                 <footer class="py-4 bg-light mt-auto">
