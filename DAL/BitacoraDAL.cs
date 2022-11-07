@@ -33,10 +33,13 @@ namespace DAL
         public static void ValorizarEntidad(Bitacora pBitacora, DataRow pDr)
         {
             pBitacora.bitacora_id = int.Parse(pDr["bitacora_id"].ToString());
+            pBitacora.cuenta_usuario_id = int.Parse(pDr["cuenta_usuario_id"].ToString());
             pBitacora.bitacora_criticidad = int.Parse(pDr["bitacora_criticidad"].ToString());
+            pBitacora.bitacora_transaccion_id = int.Parse(pDr["bitacora_transaccion_id"].ToString());
+            pBitacora.bitacora_transaccion = pDr["bitacora_transaccion_desc"].ToString();
             pBitacora.bitacora_hora = TimeSpan.Parse(pDr["bitacora_hora"].ToString());
             pBitacora.bitacora_fecha = DateTime.Parse(pDr["bitacora_fecha"].ToString());
-            pBitacora.bitacora_transaccion = pDr["bitacora_transaccion_desc"].ToString();
+
         }
 
         public static List<Bitacora> Listar()
@@ -44,13 +47,14 @@ namespace DAL
             DAO mDAObject = new DAO();
             DataSet mDs = new DataSet();
             List<Bitacora> mRegistros = new List<Bitacora>();
-            mDs = mDAObject.ExecuteDataSet("select B.bitacora_id, bitacora_criticidad, BTM.bitacora_transaccion_desc, B.bitacora_fecha, B.bitacora_hora from bitacora B left join cuenta_usuario CU on B.cuenta_usuario_id = CU.cuenta_usuario_id left join bitacora_tipo_movimiento BTM on B.bitacora_transaccion_id = BTM.bitacora_transaccion_id ");
+            mDs = mDAObject.ExecuteDataSet("Select B.bitacora_id, CU.cuenta_usuario_id, bitacora_criticidad, B.bitacora_transaccion_id ,BTM.bitacora_transaccion_desc, B.bitacora_fecha, B.bitacora_hora from bitacora B left join cuenta_usuario CU on B.cuenta_usuario_id = CU.cuenta_usuario_id left join bitacora_tipo_movimiento BTM on B.bitacora_transaccion_id = BTM.bitacora_transaccion_id ");
 
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow mDr in mDs.Tables[0].Rows)
                 {
                     Bitacora mBitacora = new Bitacora(int.Parse(mDr["bitacora_id"].ToString()));
+
                     ValorizarEntidad(mBitacora, mDr);
                     mRegistros.Add(mBitacora);
                 }
