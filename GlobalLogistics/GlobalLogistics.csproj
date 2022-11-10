@@ -92,6 +92,7 @@
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="WSStockProductos.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABMProducto.aspx.cs">
@@ -171,6 +172,10 @@
     </Compile>
     <Compile Include="Verificadores.aspx.designer.cs">
       <DependentUpon>Verificadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WSStockProductos.asmx.cs">
+      <DependentUpon>WSStockProductos.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
