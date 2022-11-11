@@ -114,6 +114,13 @@ namespace GlobalLogistics
             Response.End();
             writer.Close();
         }
+
+        protected void btnStock_Click(object sender, EventArgs e)
+        {
+            ProductoBL.ActualizarStock(mProductoSeleccionado, int.Parse(txtStock.Text));
+            ProductoBL.Guardar(mProductoSeleccionado);
+            Actualizar();
+        }
     }
 }
 

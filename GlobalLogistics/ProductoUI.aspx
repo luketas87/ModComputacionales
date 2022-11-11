@@ -275,7 +275,8 @@ h1 {
                         <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label><asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnModificar" runat="server" Text="Modificar " OnClick="btnModificar_Click" />&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+                        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" /> <br /> <br /> 
+                        &nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Text="Agregar Stock"></asp:Label><asp:TextBox ID="txtStock" runat="server"></asp:TextBox> <asp:Button ID="btnStock" runat="server" Text="Agregar Stock" OnClick="btnStock_Click" /> 
                     </div>
                     <div class="card-body">
                         

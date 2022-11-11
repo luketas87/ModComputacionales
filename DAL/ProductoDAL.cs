@@ -26,13 +26,14 @@ namespace DAL
         {
             pProducto.producto_id = int.Parse(pDr["producto_id"].ToString());
             pProducto.producto_nombre = pDr["producto_nombre"].ToString();
+            pProducto.producto_stock = int.Parse(pDr["producto_stock"].ToString());
         }
         public static List<Producto> Listar()
         {
             DAO mDAObject = new DAO();
             DataSet mDs = new DataSet();
             List<Producto> mProductos = new List<Producto>();
-            mDs = mDAObject.ExecuteDataSet("select producto_id, Producto_nombre from Producto");
+            mDs = mDAObject.ExecuteDataSet("select producto_id, Producto_nombre, producto_stock from Producto");
 
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
@@ -49,7 +50,7 @@ namespace DAL
         public static Producto Obtener(int pId)
         {
             DAO mDAObject = new DAO();
-            DataSet mDs = mDAObject.ExecuteDataSet("select Producto_id, Producto_nombre from Producto where Producto_id = " + pId);
+            DataSet mDs = mDAObject.ExecuteDataSet("select Producto_id, Producto_nombre, producto_stock from Producto where Producto_id = " + pId);
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
                 Producto mProducto = new Producto(pId);
@@ -61,7 +62,7 @@ namespace DAL
         public static Producto Obtener(string pNombre)
         {
             DAO mDAObject = new DAO();
-            DataSet mDs = mDAObject.ExecuteDataSet("select Producto_id, Producto_nombre from Producto where Producto_nombre = '" + pNombre + "'");
+            DataSet mDs = mDAObject.ExecuteDataSet("select Producto_id, Producto_nombre, producto_stock from Producto where Producto_nombre = '" + pNombre + "'");
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
                 int pId = int.Parse(mDs.Tables[0].Rows[0]["Producto_id"].ToString());
@@ -89,9 +90,9 @@ namespace DAL
             if (pProducto.producto_id == 0)
             {
                 pProducto.producto_id = ProximoId();
-                pCadenaComando = "insert into Producto(Producto_id, Producto_nombre) values (" + pProducto.producto_id + ", '" + pProducto.producto_nombre + "')";
+                pCadenaComando = "insert into Producto(Producto_id, Producto_nombre, producto_stock) values (" + pProducto.producto_id + ", '" + pProducto.producto_nombre + "', " + pProducto.producto_stock + ")";
             }
-            else pCadenaComando = "update Producto set producto_nombre = '" + pProducto.producto_nombre + "' where producto_id = " + pProducto.producto_id; 
+            else pCadenaComando = "update Producto set producto_nombre = '" + pProducto.producto_nombre+"', producto_stock = " + pProducto.producto_stock +" where producto_id = " + pProducto.producto_id; 
             return mDAObject.ExecuteNonQuery(pCadenaComando);
         }
     }

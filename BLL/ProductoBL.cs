@@ -34,5 +34,10 @@ namespace BLL
             Producto mProducto = ProductoDAL.Obtener(pNombre);
             return mProducto;
         }
+
+        public static void ActualizarStock(Producto pProducto, int Cantidad)
+        {
+            pProducto.producto_stock += Cantidad;
+        }
     }
 }

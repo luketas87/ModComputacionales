@@ -23,7 +23,10 @@ namespace BE
         {
             producto_id = pId;
         }
-
+        public int producto_stock
+        {
+            get;set;
+        }
         public Producto()
         {
 
