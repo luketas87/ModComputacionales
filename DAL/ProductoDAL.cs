@@ -95,6 +95,31 @@ namespace DAL
             else pCadenaComando = "update Producto set producto_nombre = '" + pProducto.producto_nombre+"', producto_stock = " + pProducto.producto_stock +" where producto_id = " + pProducto.producto_id; 
             return mDAObject.ExecuteNonQuery(pCadenaComando);
         }
+
+        public static List<Producto> ListarClientes()
+        {
+            DAO mDAObject = new DAO();
+            DataSet mDs = new DataSet();
+            List<Producto> mProductos = new List<Producto>();
+            mDs = mDAObject.ExecuteDataSet("select producto_id, Producto_nombre from Producto");
+
+            if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow mDr in mDs.Tables[0].Rows)
+                {
+                    Producto mProducto = new Producto(int.Parse(mDr["Producto_id"].ToString()));
+                    ValorizarEntidadSStock(mProducto, mDr);
+                    mProductos.Add(mProducto);
+                }
+            }
+            return mProductos;
+        }
+
+        public static void ValorizarEntidadSStock(Producto pProducto, DataRow pDr)
+        {
+            pProducto.producto_id = int.Parse(pDr["producto_id"].ToString());
+            pProducto.producto_nombre = pDr["producto_nombre"].ToString();
+        }
     }
     
 }

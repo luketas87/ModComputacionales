@@ -25,7 +25,12 @@ namespace GlobalLogistics
 
         public void Actualizar()
         {
-            mProductos = ProductoBL.Listar();
+            mProductos = ProductoBL.ListarClientes();
+            localhost.WSGlobalLogistics ws = new localhost.WSGlobalLogistics();
+            foreach (var item in mProductos)
+            {
+                item.producto_stock = ws.ObtenerStock(item.producto_id);
+            }
             //    GridView1.DataSource = mProductos;
             //GridView1.DataBind();
             GridView2.DataSource = mProductos;

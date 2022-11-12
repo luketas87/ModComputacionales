@@ -39,5 +39,10 @@ namespace BLL
         {
             pProducto.producto_stock += Cantidad;
         }
+
+        public static List<Producto> ListarClientes()
+        {
+            return ProductoDAL.ListarClientes();
+        }
     }
 }

@@ -52,6 +52,8 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -71,8 +73,25 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\WSRef\WSGlobalLogistics.disco" />
+    <None Include="Connected Services\WSRef\configuration91.svcinfo" />
+    <None Include="Connected Services\WSRef\configuration.svcinfo" />
+    <None Include="Connected Services\WSRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="MP.Master" />
+    <None Include="Connected Services\WSRef\WSGlobalLogistics.wsdl" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\localhost\WSGlobalLogistics.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -92,10 +111,11 @@
     <Content Include="PermisosUI.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Verificadores.aspx" />
+    <None Include="Web References\localhost\WSGlobalLogistics.disco" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="WSStockProductos.asmx" />
+    <Content Include="WSGlobalLogistics.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABMProductoOLD.aspx.cs">
@@ -125,6 +145,11 @@
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WSRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ListarUsuarios.aspx.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
@@ -183,6 +208,11 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,8 +227,13 @@
     <Compile Include="Verificadores.aspx.designer.cs">
       <DependentUpon>Verificadores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WSStockProductos.asmx.cs">
-      <DependentUpon>WSStockProductos.asmx</DependentUpon>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WSGlobalLogistics.asmx.cs">
+      <DependentUpon>WSGlobalLogistics.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -215,6 +250,28 @@
       <Project>{5f462618-de5f-43c8-a731-7c38e9465127}</Project>
       <Name>Servicios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44386/WSGlobalLogistics.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>https://localhost:44386/WSGlobalLogistics.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>GlobalLogistics_localhost_WSGlobalLogistics</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WSRef\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

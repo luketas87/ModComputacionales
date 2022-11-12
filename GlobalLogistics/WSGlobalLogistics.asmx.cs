@@ -27,8 +27,8 @@ namespace GlobalLogistics
         {
             SqlConnection mCon = new SqlConnection(ConfigurationManager.ConnectionStrings["StringConexion"].ConnectionString);
             mCon.Open();
-            SqlCommand mCom = new SqlCommand("select stock from producto where producto_id = " + id, mCon);
-            int resultado = mCom.ExecuteNonQuery();
+            SqlCommand mCom = new SqlCommand("select producto_stock from producto where producto_id = " + id, mCon);
+            int resultado = (int)mCom.ExecuteScalar();
             mCon.Close();
             return resultado;
         }
