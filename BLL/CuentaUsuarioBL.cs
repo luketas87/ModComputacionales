@@ -80,6 +80,7 @@ namespace BLL
                     mRegistro.bitacora_criticidad = 1;
                     BitacoraBL.Guardar(mRegistro);
                     Guardar(mCuentaUsuario);
+                    MailSender.EnviarMailBloqueo(mCuentaUsuario.Cuenta_usuario_email, mEncriptador.Desencriptar(mCuentaUsuario.Cuenta_usuario_username), mNuevaClave);
                     throw new CuentaBloqueadaException(mCuentaUsuario, mNuevaClave);
                 }
                 Guardar(mCuentaUsuario);
@@ -138,31 +139,31 @@ namespace BLL
 
         public static int Eliminar(CuentaUsuario pCuentaUsuario)
         {
-            List<CuentaUsuario> mCuentas = Listar();
-            if (mCuentas.Count >= 2)
-            {
-                List<Patente> mPatentesExcepto = PatenteBL.ListarExcepto(pCuentaUsuario);
+            //List<CuentaUsuario> mCuentas = Listar();
+            //if (mCuentas.Count >= 2)
+            //{
+                //List<Patente> mPatentesExcepto = PatenteBL.ListarExcepto(pCuentaUsuario);
 
-                if (mPatentesExcepto.Count == 0)
-                {
-                    int a;
+                //if (mPatentesExcepto.Count == 0)
+                //{
+                //    int a;
 
-                    List<Patente> mPatente = ObtenerPatentes(pCuentaUsuario);
-                    foreach (Patente x in mPatente)
-                    {
-                        EliminarPatente(x, pCuentaUsuario);
-                    }
-                    a = CuentaUsuarioDAL.Eliminar(pCuentaUsuario);
+                //    List<Patente> mPatente = ObtenerPatentes(pCuentaUsuario);
+                //    foreach (Patente x in mPatente)
+                //    {
+                //        EliminarPatente(x, pCuentaUsuario);
+                //    }
+                    int a = CuentaUsuarioDAL.Eliminar(pCuentaUsuario);
                     return a;
-                }
-                else
-                {
-                    PatentesSinAsignarException ex = new PatentesSinAsignarException();
-                    ex.mPatentesSinAsignar = mPatentesExcepto;
-                    throw ex;
-                }
-            }
-            else throw new NoQuedanUsuariosException();
+            //    }
+            //    else
+            //    {
+            //        PatentesSinAsignarException ex = new PatentesSinAsignarException();
+            //        ex.mPatentesSinAsignar = mPatentesExcepto;
+            //        throw ex;
+            //    }
+            //}
+            //else throw new NoQuedanUsuariosException();
         }
 
         public static List<Patente> ObtenerPatentes(CuentaUsuario pCuentaUsuario)

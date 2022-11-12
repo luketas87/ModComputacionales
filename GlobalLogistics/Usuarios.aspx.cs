@@ -19,12 +19,18 @@ namespace GlobalLogistics
         CuentaUsuario mUsuarioSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Actualizar();
+            mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
+        }
+
+        public void Actualizar()
+        {
             mCuentaUsuarios = CuentaUsuarioBL.Listar();
             DataTable mdt = new DataTable();
             mdt.Columns.Add("Username", typeof(string));
             mdt.Columns.Add("FechaAlta", typeof(DateTime));
             mdt.Columns.Add("Email", typeof(string));
-            foreach(CuentaUsuario CU in mCuentaUsuarios)
+            foreach (CuentaUsuario CU in mCuentaUsuarios)
             {
                 DataRow x = mdt.NewRow();
                 x["Username"] = mCripto.Desencriptar(CU.Cuenta_usuario_username);
@@ -64,6 +70,14 @@ namespace GlobalLogistics
             //{
              //   Response.Write("<script>alert('" + Ex.Message + "')</script>");
             //}
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            CuentaUsuarioBL.Eliminar(mUsuarioSeleccionado);
+            txtEmail.Text = null;
+            txtNombre.Text = null;
+            Actualizar();
         }
     }
 }

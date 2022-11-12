@@ -48,6 +48,7 @@
     <Compile Include="EmailYaExisteException.cs" />
     <Compile Include="ErrorConsistenciaDVHException.cs" />
     <Compile Include="ErrorConsistenciaDVVException.cs" />
+    <Compile Include="MailSender.cs" />
     <Compile Include="NoQuedanUsuariosException.cs" />
     <Compile Include="PatentesSinAsignarException.cs" />
     <Compile Include="PatenteYaAsignadaException.cs" />

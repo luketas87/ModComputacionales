@@ -20,7 +20,7 @@
         <p>
             Email<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" /> &nbsp; &nbsp;<asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
         <br />
         <br />
         Patentes<asp:GridView ID="GridView1" runat="server">

@@ -112,6 +112,7 @@ namespace GlobalLogistics
 
                 DVHBL.ValidarConsistenciaDVH();
                 DVVBL.ValidarConsistenciaDVV();
+
                 Response.Redirect("MenuPrincipalUI.aspx");
             }
             catch (Servicios.UsuarioInexistenteException ex)
