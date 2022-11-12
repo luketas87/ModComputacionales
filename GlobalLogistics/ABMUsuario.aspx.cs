@@ -31,8 +31,8 @@ namespace GlobalLogistics
         {
             Encriptador mCripto = new Encriptador();
             CuentaUsuario mCuentaUsuario = new CuentaUsuario();
-            mCuentaUsuario.Cuenta_usuario_username = mCripto.EncriptarReversible(txtUsuario.Text);
-            mCuentaUsuario.Cuenta_usuario_password = mCripto.EncriptarIrreversible(txtContrasenia.Text);
+            //mCuentaUsuario.Cuenta_usuario_username = mCripto.EncriptarReversible(txtUsuario.Text);
+            //mCuentaUsuario.Cuenta_usuario_password = mCripto.EncriptarIrreversible(txtContrasenia.Text);
             mCuentaUsuario.Cuenta_fecha_alta = DateTime.Now;
             mCuentaUsuario.Cuenta_usuario_intentos_login = 0;
             mCuentaUsuario.cuenta_usuario_activa = 1;

@@ -191,7 +191,8 @@ namespace GlobalLogistics
 
         protected void btnAgregarAFamilia_Click(object sender, EventArgs e)
         {
-            mFamSeleccionada = (Familia)Session["FamSeleccionada"];
+           mFamSeleccionada = (Familia)Session["FamSeleccionada"];
+            
             mFamSeleccionada.AgregarHijo(mPermisos[grdPermisos.SelectedIndex]);
             PermisoBL.GuardarComponente(mFamSeleccionada, true);
             ActualizarFamiliaSeleccionada();

@@ -24,13 +24,13 @@ namespace GlobalLogistics
         protected global::System.Web.UI.WebControls.TextBox tbnombre;
 
         /// <summary>
-        /// Control tbedad.
+        /// Control tbpassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbedad;
+        protected global::System.Web.UI.WebControls.TextBox tbpassword;
 
         /// <summary>
         /// Control tbemail.
@@ -40,15 +40,6 @@ namespace GlobalLogistics
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbemail;
-
-        /// <summary>
-        /// Control tbdate.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbdate;
 
         /// <summary>
         /// Control BtnCreate.

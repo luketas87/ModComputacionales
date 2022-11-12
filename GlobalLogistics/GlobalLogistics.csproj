@@ -88,7 +88,7 @@
     <Content Include="ListarUsuarios.aspx" />
     <Content Include="ProductoUI.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
-    <Content Include="Permisos.aspx" />
+    <Content Include="PermisosUI.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Verificadores.aspx" />
     <Content Include="Web.config" />
@@ -153,12 +153,12 @@
     <Compile Include="MenuPrincipalUI.aspx.designer.cs">
       <DependentUpon>MenuPrincipalUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Permisos.aspx.cs">
-      <DependentUpon>Permisos.aspx</DependentUpon>
+    <Compile Include="PermisosUI.aspx.cs">
+      <DependentUpon>PermisosUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Permisos.aspx.designer.cs">
-      <DependentUpon>Permisos.aspx</DependentUpon>
+    <Compile Include="PermisosUI.aspx.designer.cs">
+      <DependentUpon>PermisosUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login.aspx.cs">
