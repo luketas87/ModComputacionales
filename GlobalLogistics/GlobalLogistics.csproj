@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GlobalLogistics</RootNamespace>
     <AssemblyName>GlobalLogistics</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44386</IISExpressSSLPort>
@@ -71,6 +71,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MP.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,10 +81,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ABMProducto.aspx" />
+    <Content Include="ABMProductoOLD.aspx" />
     <Content Include="ABMUsuario.aspx" />
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="ListarUsuarios.aspx" />
     <Content Include="ProductoUI.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
     <Content Include="Permisos.aspx" />
@@ -95,12 +97,12 @@
     <Content Include="WSStockProductos.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMProducto.aspx.cs">
-      <DependentUpon>ABMProducto.aspx</DependentUpon>
+    <Compile Include="ABMProductoOLD.aspx.cs">
+      <DependentUpon>ABMProductoOLD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ABMProducto.aspx.designer.cs">
-      <DependentUpon>ABMProducto.aspx</DependentUpon>
+    <Compile Include="ABMProductoOLD.aspx.designer.cs">
+      <DependentUpon>ABMProductoOLD.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMUsuario.aspx.cs">
       <DependentUpon>ABMUsuario.aspx</DependentUpon>
@@ -122,6 +124,20 @@
     </Compile>
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MP.Master.cs">
+      <DependentUpon>MP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MP.Master.designer.cs">
+      <DependentUpon>MP.Master</DependentUpon>
     </Compile>
     <Compile Include="ProductoUI.aspx.cs">
       <DependentUpon>ProductoUI.aspx</DependentUpon>

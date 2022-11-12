@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ABMProducto.aspx.cs" Inherits="GlobalLogistics.ABMProducto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ABMProductoOLD.aspx.cs" Inherits="GlobalLogistics.ABMProducto" %>
 
 <!DOCTYPE html>
 
