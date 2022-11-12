@@ -11,6 +11,10 @@ namespace GlobalLogistics
 {
     public partial class MenuPrincipalUI : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('"+ Session["IDUsuario"].ToString()  +"')</script>");
+        }
         /*CuentaUsuario mCuentaUsuario;
         //string mUsuarioLogueado;
         Encriptador mCripto = new Encriptador();
@@ -51,7 +55,7 @@ namespace GlobalLogistics
                 Response.Redirect("Login.aspx");
             }
 
-            
+
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -80,7 +84,7 @@ namespace GlobalLogistics
             {
                 Response.Redirect("Login.aspx");
             }
-                
+
         }
 
         protected void btnProductos_Click(object sender, EventArgs e)

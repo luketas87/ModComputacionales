@@ -196,7 +196,6 @@ namespace GlobalLogistics
             mFamSeleccionada.AgregarHijo(mPermisos[grdPermisos.SelectedIndex]);
             PermisoBL.GuardarComponente(mFamSeleccionada, true);
             ActualizarFamiliaSeleccionada();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La patente ha sido agregada correctamente')", true);
         }
     }
 }

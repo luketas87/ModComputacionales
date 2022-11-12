@@ -73,7 +73,7 @@
                                         </a>
 
                                         <!--DVH-->
-                                        <a class="nav-link" href="index.html">
+                                        <a class="nav-link" href="Verificadores.aspx">
                                             <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
                                             Recalcular DVH
                                         </a>
@@ -108,13 +108,13 @@
 
                     <div class="sb-sidenav-footer">
                          <!-- Traer el usuario logueado-->
-                        <div class="small">Logueado como: </div>
+                        <div class="small">Logueado como: <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></div>
                         <!-- Start Bootstrap-->
                     </div>
                 </nav>
             </div>
          </div>
-            <!-- Seccion fondo-->
+            <!-- Seccion fondo-->asd
         <main>
         </main>
          

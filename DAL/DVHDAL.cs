@@ -239,6 +239,7 @@ namespace DAL
             if (pTabla == "bitacora") mCampos.Add("bitacora_dvh");
             if (pTabla == "bitacora_tipo_movimiento") mCampos.Add("bitacora_tipo_movimiento_desc");
             if (pTabla == "cliente") { mCampos.Add("cliente_dvh"); mCampos.Add("cliente_doc_tipo"); mCampos.Add("cliente_doc_numero"); }
+            if (pTabla == "cuenta_usuario") mCampos.Add("cuenta_usuario_username");
             return mCampos;
         }
 
