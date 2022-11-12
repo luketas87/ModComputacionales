@@ -103,11 +103,11 @@ namespace GlobalLogistics
                 VerificarBase();
                 List<Familia> mFamilias = new List<Familia>();
                 mFamilias = CuentaUsuarioBL.ObtenerFamilias(mCuentaUsuario);
-                if (mFamilias.ElementAt(0).familia_nombre == "Administrador"){adminlogged = true;}
+                if (mFamilias.Any(x => x.familia_nombre.Equals("Administrador"))){adminlogged = true;}
                 Session.Add("UsuarioLoggeado", true);
                 Session.Add("IDUsuario", mCuentaUsuario.Cuenta_usuario_id.ToString());
                 Session.Add("Usuario", mCuentaUsuario.Cuenta_usuario_username.ToString());
-                Session.Add("Familia", mFamilias.ElementAt(0).familia_nombre);
+                Session.Add("Familia", mFamilias.Count > 0 ? mFamilias.ElementAt(0).familia_nombre : "Sin Familia");
                 Session.Add("BaseCorrupta",false);
 
                 DVHBL.ValidarConsistenciaDVH();
