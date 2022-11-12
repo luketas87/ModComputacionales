@@ -35,7 +35,7 @@ namespace GlobalLogistics.localhost {
         
         /// <remarks/>
         public WSGlobalLogistics() {
-            this.Url = global::GlobalLogistics.Properties.Settings.Default.GlobalLogistics_localhost_WSGlobalLogistics;
+            this.Url = "https://localhost:44386/WSGlobalLogistics.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
