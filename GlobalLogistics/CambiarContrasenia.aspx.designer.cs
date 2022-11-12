@@ -11,7 +11,7 @@ namespace GlobalLogistics
 {
 
 
-    public partial class Login
+    public partial class CambiarContrasenia
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace GlobalLogistics
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// Control lblCambiarContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCambiarContrasenia;
+
+        /// <summary>
         /// Control txtUser.
         /// </summary>
         /// <remarks>
@@ -51,22 +60,31 @@ namespace GlobalLogistics
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassword;
 
         /// <summary>
-        /// Control btnLogin.
+        /// Control Password2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnLogin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password2;
 
         /// <summary>
-        /// Control btnCambiarClave.
+        /// Control Password3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnCambiarClave;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password3;
+
+        /// <summary>
+        /// Control btnCambiarContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnCambiarContrasenia;
 
         /// <summary>
         /// Control lblError.

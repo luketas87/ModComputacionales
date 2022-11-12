@@ -80,6 +80,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="CambiarContrasenia.aspx" />
     <Content Include="MP.Master" />
     <None Include="Connected Services\WSRef\WSGlobalLogistics.wsdl" />
     <None Include="packages.config" />
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="ListarUsuarios.aspx.designer.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarContrasenia.aspx.cs">
+      <DependentUpon>CambiarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiarContrasenia.aspx.designer.cs">
+      <DependentUpon>CambiarContrasenia.aspx</DependentUpon>
     </Compile>
     <Compile Include="MP.Master.cs">
       <DependentUpon>MP.Master</DependentUpon>

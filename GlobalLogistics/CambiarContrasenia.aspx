@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GlobalLogistics.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CambiarContrasenia.aspx.cs" Inherits="GlobalLogistics.CambiarContrasenia" %>
 
 <!DOCTYPE html>
 <html>
@@ -64,9 +64,7 @@ body{
 	font-family: 'Exo', sans-serif;
 	font-size: 35px;
 	font-weight: 200;
-            height: 40px;
-            width: 230px;
-        }
+}
 
 .header div span{
 	color: #96ff1d !important;
@@ -175,11 +173,14 @@ body{
 			<div>Global<span>Logistics</span></div>
 		</div>
 		<br>
+		<label id="lblCambiarContrasenia" runat="server" Text="Cambiar contraseña"></label>
 		<div class="login">
 				<input type="text" placeholder="Usuario" id="txtUser" runat="server"><br>
-				<input type="password" placeholder="Password" id="txtPassword" runat="server" name="textPassword"><br>
-				<input type="button" value="Login" onserverclick="BtnLogin_Click" runat="server" id="btnLogin"><br>
-				<input type="button" value="Modificar Contraseña" onserverclick="btnCambiarClave_Click" runat="server" id="btnCambiarClave"><br>
+				<input type="password" placeholder="Contraseña actual" id="txtPassword" runat="server" name="textPassword"><br>
+				<input type="password" placeholder="Nueva contraseña" id="Password2" runat="server" name="textPassword"><br>
+				<input type="password" placeholder="Repetir contraseña" id="Password3" runat="server" name="textPassword"><br>
+				<input type="button" value="Cambiar contraseña" onserverclick="BtnCambiarContrasenia_Click" runat="server" id="btnCambiarContrasenia"><br>
+				
 				<label id="lblError" runat="server"></label>
 		 </div>
     </form>

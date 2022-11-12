@@ -9,7 +9,7 @@ using BLL;
 
 namespace GlobalLogistics
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         List<string> mDVHCorruptos;
         List<string> mDVVCorruptos;
@@ -80,8 +80,11 @@ namespace GlobalLogistics
 
 
         }
-
-        protected void BtnLogin_Click(object sender, EventArgs e)
+        protected void btnCambiarClave_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CambiarContrasenia.aspx");
+        }
+            protected void BtnLogin_Click(object sender, EventArgs e)
         {
             bool adminlogged = false;
 
