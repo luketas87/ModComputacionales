@@ -11,8 +11,13 @@ namespace GlobalLogistics
 {
     public partial class MenuPrincipalUI : System.Web.UI.Page
     {
+        CuentaUsuario mUsuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = int.Parse(Session["IDUsuario"].ToString());
+            mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+            bool validacion = PermisoBL.ValidarPermiso(mUsuarioLogueado, 5);
+            //Response.Write("<script>alert('Usuario logueado: " + validacion.ToString() + "') </script>");
             
         }
         /*CuentaUsuario mCuentaUsuario;

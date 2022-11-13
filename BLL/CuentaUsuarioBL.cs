@@ -22,8 +22,16 @@ namespace BLL
             return mCuentaUsuario;
         }
 
+        public static CuentaUsuario Obtener(int pId, bool pTrue)
+        {
+            CuentaUsuario mCuentaUsuario = CuentaUsuarioDAL.Obtener(pId);
+            if (mCuentaUsuario is null) { mCuentaUsuario = new CuentaUsuario(); }
+            return mCuentaUsuario;
+        }
+
         public static CuentaUsuario Obtener(string pUsername)
         {
+            string user = new Encriptador().Desencriptar(pUsername);
             CuentaUsuario mCuentaUsuario = CuentaUsuarioDAL.Obtener(pUsername);
             if (mCuentaUsuario is null) { mCuentaUsuario = new CuentaUsuario(); }
             return mCuentaUsuario;

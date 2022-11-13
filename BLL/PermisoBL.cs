@@ -61,5 +61,25 @@ namespace BLL
              PermisosDAL.GetHijos(pFamilia);
         }
 
+        public static List<Patente> ListarPermisos(CuentaUsuario pCuentaUsuario)
+        {
+            List<Patente> mPatentes = new List<Patente>();
+            GetPermissions(pCuentaUsuario);
+            List<Familia> mFamilias = (List<Familia>)(pCuentaUsuario.Permisos.OfType<BE.Familia>().ToList());
+            foreach (Familia F in mFamilias)
+            {
+                GetHijos(F);
+                mPatentes.AddRange((List<Patente>)F.Hijos.OfType<BE.Patente>().ToList());
+            }
+            mPatentes.AddRange((List<Patente>)pCuentaUsuario.Permisos.OfType<BE.Patente>().ToList());
+            return mPatentes;
+        }
+
+        public static bool ValidarPermiso(CuentaUsuario pCuentaUsuario, int permisoId)
+        {
+            List<Patente> mPatentes = ListarPermisos(pCuentaUsuario);
+            return mPatentes.Any(x => x.Id.Equals(permisoId));
+        }
+
     }
 }

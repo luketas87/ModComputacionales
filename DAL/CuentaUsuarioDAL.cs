@@ -42,7 +42,7 @@ namespace DAL
         public static CuentaUsuario Obtener(int pId)
         {
             DAO mDAObject = new DAO();
-            DataSet mDs = mDAObject.ExecuteDataSet("select Cuenta_usuario_id, Cuenta_usuario_username, Cuenta_usuario_password, Cuenta_usuario_intentos_login,  cuenta_usuario_activa, cuenta_fecha_alta, year(Cuenta_fecha_alta) as anio, month(Cuenta_fecha_alta) as mes, day(Cuenta_fecha_alta) as dia from cuenta_usuario where cuenta_usuario_activa = 1 and  Cuenta_usuario_id = " + pId);
+            DataSet mDs = mDAObject.ExecuteDataSet("select Cuenta_usuario_id, Cuenta_usuario_username, Cuenta_usuario_password, Cuenta_usuario_intentos_login, Cuenta_usuario_email, cuenta_usuario_activa, cuenta_fecha_alta, year(Cuenta_fecha_alta) as anio, month(Cuenta_fecha_alta) as mes, day(Cuenta_fecha_alta) as dia from cuenta_usuario where cuenta_usuario_activa = 1 and  Cuenta_usuario_id = " + pId);
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
                 CuentaUsuario mCuentaUsuario = new CuentaUsuario(pId);
@@ -55,7 +55,7 @@ namespace DAL
         public static CuentaUsuario Obtener(string pUsername)
         {
             DAO mDAObject = new DAO();
-            DataSet mDs = mDAObject.ExecuteDataSet("select Cuenta_usuario_id, Cuenta_usuario_username, Cuenta_usuario_email, Cuenta_usuario_password, Cuenta_usuario_intentos_login,  cuenta_usuario_activa, cuenta_fecha_alta, year(Cuenta_fecha_alta) as anio, month(Cuenta_fecha_alta) as mes, day(Cuenta_fecha_alta) as dia from cuenta_usuario where cuenta_usuario_username = '" + pUsername + "' ");
+            DataSet mDs = mDAObject.ExecuteDataSet("select Cuenta_usuario_id, Cuenta_usuario_username, Cuenta_usuario_email, Cuenta_usuario_password, Cuenta_usuario_intentos_login, Cuenta_usuario_email, cuenta_usuario_activa, cuenta_fecha_alta, year(Cuenta_fecha_alta) as anio, month(Cuenta_fecha_alta) as mes, day(Cuenta_fecha_alta) as dia from cuenta_usuario where cuenta_usuario_username = '" + pUsername + "' ");
             if (mDs.Tables.Count > 0 && mDs.Tables[0].Rows.Count > 0)
             {
                 int pId = int.Parse(mDs.Tables[0].Rows[0]["cuenta_usuario_id"].ToString());

@@ -20,10 +20,16 @@
         <p>
             Email<asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         </p>
-        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" /> &nbsp; &nbsp;<asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
+        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" /> &nbsp; &nbsp;<asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" /> &nbsp; &nbsp;<asp:Button ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
         <br />
         <br />
-        Patentes<asp:GridView ID="GridView1" runat="server">
+        Todos los permisos<asp:GridView ID="grdPatentes" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdPatentes_SelectedIndexChanged">
+        </asp:GridView>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar" />
+        <br />
+        <br />
+        Patentes asignadas<br />
+        <asp:GridView ID="grdPatAsignadas" runat="server">
         </asp:GridView>
         <br />
     </form>
