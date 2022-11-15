@@ -179,9 +179,12 @@
             grid-column: 2;
             grid-row: 1/2;
         }
-        #principal{
-            border:1px solid black;
+        form{
+            width:80%;
+            margin:0 auto;
+            padding-left:100px;
         }
+        
     </style>
 </head>
 
@@ -288,7 +291,7 @@
         </div>
     </div>
     <main>
-        <div id="principal">
+        <div>
         <form id="form1" runat="server">
             <div>
                 <br />
