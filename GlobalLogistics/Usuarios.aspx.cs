@@ -181,6 +181,7 @@ namespace GlobalLogistics
             mPermisoAsignadoSeleccionado = mUsuarioSeleccionado.Permisos[grdPatAsignadas.SelectedIndex];
             Session["PermisoAsignadoSeleccionado"] = mPermisoAsignadoSeleccionado;
             Session["IndexPermisoAsignadoSeleccionado"] = grdPatAsignadas.SelectedIndex;
+            grdPatAsignadas.SelectedRow.BackColor = Color.Aquamarine;
             
         }
     }
