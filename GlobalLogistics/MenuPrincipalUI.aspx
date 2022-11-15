@@ -18,7 +18,6 @@
             background-color: transparent;
             padding: 0;
             color: #FFFFFF80;
-            height:3px;
         }
 
     </style>
