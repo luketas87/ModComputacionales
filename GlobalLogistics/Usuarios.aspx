@@ -179,6 +179,9 @@
             grid-column: 2;
             grid-row: 1/2;
         }
+        #principal{
+            border:1px solid black;
+        }
     </style>
 </head>
 
@@ -285,6 +288,7 @@
         </div>
     </div>
     <main>
+        <div id="principal">
         <form id="form1" runat="server">
             <div>
                 <br />
@@ -323,6 +327,7 @@
 
             <br />
         </form>
+            </div>
     </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
