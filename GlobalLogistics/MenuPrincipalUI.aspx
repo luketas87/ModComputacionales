@@ -12,7 +12,14 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        #btnBitacora{
+            border: none;
+            background-color: transparent;
+            padding: 0;
+        }
 
+    </style>
 </head>
 <body class="sb-nav-fixed">
 
