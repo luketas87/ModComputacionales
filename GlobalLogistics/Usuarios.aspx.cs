@@ -21,9 +21,12 @@ namespace GlobalLogistics
         ComponentePermiso mPermisoSeleccionado;
         List<ComponentePermiso> mPermisos;
         ComponentePermiso mPermisoAsignadoSeleccionado;
+        CuentaUsuario mUsuarioLogueado;
         int indexPermisoAsignadoSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = int.Parse(Session["IDUsuario"].ToString());
+            mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
             Actualizar();
             ActualizarPermisos();
             mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
@@ -128,6 +131,13 @@ namespace GlobalLogistics
             mCuenta.Cuenta_usuario_password = mCripto.EncriptarIrreversible("12345678");
             CuentaUsuarioBL.Guardar(mCuenta);
             Response.Write("<script>alert('Usuario generado')</script>");
+                BE.Bitacora mRegistro = new BE.Bitacora();
+                mRegistro.bitacora_fecha = DateTime.Now;
+                mRegistro.bitacora_hora = DateTime.Now.TimeOfDay;
+                mRegistro.cuenta_usuario_id = mUsuarioLogueado.Cuenta_usuario_id;
+                mRegistro.bitacora_transaccion_id = 5;
+                mRegistro.bitacora_criticidad = 2;
+                BitacoraBL.Guardar(mRegistro);
             }
             catch (EmailYaExisteException)
             {
