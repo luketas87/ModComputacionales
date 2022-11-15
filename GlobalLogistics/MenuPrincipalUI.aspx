@@ -15,34 +15,34 @@
 
 </head>
 <body class="sb-nav-fixed">
-    
-     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-         <!-- Navbar Brand-->
-         <a class="navbar-brand ps-3" href="index2.html">Inicio</a>
-         <!-- Sidebar Toggle-->
-         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="MenuPrincipalUI.aspx">Inicio</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-             <!--<div class="input-group">
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <!--<div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>-->
-         </form>
-         <!-- Navbar-->
-         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-             <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                     <%--<li><a class="dropdown-item" href="#!">Panel de control</a></li>--%>
-                   <%--<li><a class="dropdown-item" href="#!">Log</a></li>--%>
-                     <li>
-                         <hr class="dropdown-divider" />
-                     </li>
-                     <li><a class="dropdown-item" href="Logout.aspx">Logout</a></li>
-                 </ul>
-             </li>
-         </ul>
-     </nav>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <%--<li><a class="dropdown-item" href="#!">Panel de control</a></li>--%>
+                    <%--<li><a class="dropdown-item" href="#!">Log</a></li>--%>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="Logout.aspx">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -78,33 +78,31 @@
                                         <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
                                         Recalcular DVH
                                     </a>
-
                                     <!--Backup & Restore-->
                                     <a class="nav-link" href="BackupRestore.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                                         Backup & Restore
                                     </a>
 
-                                    <!--Bitácora-->
-                                    <a class="nav-link collapsed" href="Bitacora.aspx" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                       <!--Bitacora-->
+                                    <a class="nav-link" href="Bitacora.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                        Bitácora
+                                       Bitacora
                                     </a>
+
+                                    <!--Bitácora colapsado-->
+                             <%--       <a class="nav-link collapsed" href="Bitacora.aspx" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                        
+                                    </a>--%>
                                 </nav>
-
-                            </div>
-
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"></nav>
-                            </div>
                         </a>
 
-
-                       <div class="sb-sidenav-footer">
+                        <div class="sb-sidenav-footer">
                             <!-- Traer el usuario logueado-->
                             <div class="small">
                                 Logueado como:
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text="WebMaster"></asp:Label>
                             </div>
                             <!-- Start Bootstrap-->
                         </div>
@@ -114,7 +112,7 @@
         </div>
     </div>
     <!-- Seccion fondo-->
-  
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts2.js"></script>

@@ -191,7 +191,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index2.html">Inicio</a>
+        <a class="navbar-brand ps-3" href="MenuPrincipalUI.aspx">Inicio</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -258,10 +258,10 @@
                                         Backup & Restore
                                     </a>
 
-                                    <!--Bitácora-->
-                                    <a class="nav-link collapsed" href="Bitacora.aspx" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                        Bitácora
+                                     <!--Bitacora-->
+                                    <a class="nav-link" href="Bitacora.aspx">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                                       Bitacora
                                     </a>
                                 </nav>
                         </a>
@@ -309,9 +309,9 @@
             <p>
                 <input type="text" class="form-control" placeholder="Email" id="txtEmail" runat="server">
             </p>
-            <asp:Button ID="btnAgregarUsuario" class="Buttons" runat="server" OnClick="btnAgregarUsuario_Click" Style="margin-bottom: 0px" Text="Agregar Usuario" Height="24px" Width="110px" />
-            <asp:Button ID="btnModificarUsuario" class="Buttons" runat="server" OnClick="btnModificarUsuario_Click" Style="margin-bottom: 0px" Text="Modificar" Height="24px" Width="110px" />
-            <asp:Button ID="btnEliminarUsuario" class="Buttons" runat="server" OnClick="btnEliminarUsuario_Click" Style="margin-bottom: 0px" Text="Eliminar Usuario" Height="24px" Width="110px" />
+            <asp:Button ID="btnAgregarUsuario" class="Buttons" runat="server" OnClick="btnAgregarUsuario_Click" Style="margin-bottom: 0px" Text="Agregar Usuario" Height="24px" Width="125px" />
+            <asp:Button ID="btnModificarUsuario" class="Buttons" runat="server" OnClick="btnModificarUsuario_Click" Style="margin-bottom: 0px" Text="Modificar" Height="24px" Width="125px" />
+            <asp:Button ID="btnEliminarUsuario" class="Buttons" runat="server" OnClick="btnEliminarUsuario_Click" Style="margin-bottom: 0px" Text="Eliminar Usuario" Height="24px" Width="125px" />
 
             <br />
             <br />
@@ -319,14 +319,14 @@
             <h4>Todos los permisos:</h4>
             <asp:GridView ID="grdPatentes" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdPatentes_SelectedIndexChanged" CssClass="mGrid">
             </asp:GridView>
-            <asp:Button ID="btnAgregar" class="Buttons" runat="server" OnClick="btnAgregarPermiso" Style="margin-bottom: 0px" Text="Agregar Permiso" Height="24px" Width="110px" />
+            <asp:Button ID="btnAgregar" class="Buttons" runat="server" OnClick="btnAgregarPermiso" Style="margin-bottom: 0px" Text="Agregar Permiso" Height="24px" Width="125px" />
 
             <br />
             <br />
             <h4>Patentes Asignadas</h4>
             <asp:GridView ID="grdPatAsignadas" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdPatAsignadas_SelectedIndexChanged" CssClass="mGrid">
             </asp:GridView>
-            <asp:Button ID="btnRemoverPermiso" class="Buttons" runat="server" OnClick="btnRemoverPermiso_Click" Style="margin-bottom: 0px" Text="Remover Permisos" Height="25px" Width="110px" />
+            <asp:Button ID="btnRemoverPermiso" class="Buttons" runat="server" OnClick="btnRemoverPermiso_Click" Style="margin-bottom: 0px" Text="Remover Permisos" Height="25px" Width="140px" />
 
             <br />
         </form>

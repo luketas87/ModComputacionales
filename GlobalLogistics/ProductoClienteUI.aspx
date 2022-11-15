@@ -106,7 +106,7 @@ h1 {
         >
      <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index2.html">Inicio</a> 
+            <a class="navbar-brand ps-3" href="MenuPrincipalUI.aspx">Inicio</a> 
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -169,10 +169,10 @@ h1 {
                                             Backup & Restore
                                         </a>
 
-                                        <!--Bitácora-->
-                                        <a class="nav-link collapsed" href="Bitacora.aspx" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                            Bitácora
+                                       <!--Bitacora-->
+                                        <a class="nav-link" href="Bitacora.aspx">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                                            Bitacora
                                         </a>
                                     </nav>
 

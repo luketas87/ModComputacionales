@@ -24,7 +24,7 @@ namespace DAL
         {
             DAO mDAObject = new DAO();
             string pCadenaComando;
-            if (pCuentaUsuario.Cuenta_usuario_id == 0)
+            if (pCuentaUsuario.Cuenta_usuario_id == 0) 
             {
                 pCuentaUsuario.Cuenta_usuario_id = ProximoId();
                 pCadenaComando = "insert into cuenta_usuario(Cuenta_usuario_id, Cuenta_usuario_username, Cuenta_usuario_password, Cuenta_usuario_intentos_login,  cuenta_usuario_activa, cuenta_fecha_alta, cuenta_usuario_email) values (" + pCuentaUsuario.Cuenta_usuario_id + ", '" + pCuentaUsuario.Cuenta_usuario_username + "', '" + pCuentaUsuario.Cuenta_usuario_password + "', " + pCuentaUsuario.Cuenta_usuario_intentos_login + ", " + pCuentaUsuario.cuenta_usuario_activa + ", '" + pCuentaUsuario.GetFechaAltaToString() + "', '" + pCuentaUsuario.Cuenta_usuario_email + "')";
