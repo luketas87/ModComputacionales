@@ -21,12 +21,9 @@ namespace GlobalLogistics
         ComponentePermiso mPermisoSeleccionado;
         List<ComponentePermiso> mPermisos;
         ComponentePermiso mPermisoAsignadoSeleccionado;
-        CuentaUsuario mUsuarioLogueado;
         int indexPermisoAsignadoSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Session["IDUsuario"].ToString());
-            mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
             Actualizar();
             ActualizarPermisos();
             mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
@@ -90,8 +87,8 @@ namespace GlobalLogistics
             Session["UsuSeleccionado"] = mUsuarioSeleccionado;
             Session["IndexUsuSeleccionado"] = grdUsuarios.SelectedIndex;
             grdUsuarios.SelectedRow.BackColor = Color.Aquamarine;
-            txtEmail.Text = mUsuarioSeleccionado.Cuenta_usuario_email;
-            txtNombre.Text = mCripto.Desencriptar(mUsuarioSeleccionado.Cuenta_usuario_username);
+            txtNombre.Value = mUsuarioSeleccionado.Cuenta_usuario_email;
+            txtNombre.Value = mCripto.Desencriptar(mUsuarioSeleccionado.Cuenta_usuario_username);
             PermisoBL.GetPermissions(mUsuarioSeleccionado);
             DataTable mdt = new DataTable();
             mdt.Columns.Add("Nombre", typeof(string));
@@ -122,49 +119,16 @@ namespace GlobalLogistics
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            try {
-            CuentaUsuarioBL.ValidarEmail(txtEmail.Text);
-            CuentaUsuario mCuenta = new CuentaUsuario();
-            mCuenta.Cuenta_fecha_alta = DateTime.Now;
-            mCuenta.Cuenta_usuario_username = mCripto.EncriptarReversible(txtNombre.Text);
-            mCuenta.Cuenta_usuario_email = txtEmail.Text;
-            mCuenta.Cuenta_usuario_password = mCripto.EncriptarIrreversible("12345678");
-            CuentaUsuarioBL.Guardar(mCuenta);
-            Response.Write("<script>alert('Usuario generado')</script>");
-                BE.Bitacora mRegistro = new BE.Bitacora();
-                mRegistro.bitacora_fecha = DateTime.Now;
-                mRegistro.bitacora_hora = DateTime.Now.TimeOfDay;
-                mRegistro.cuenta_usuario_id = mUsuarioLogueado.Cuenta_usuario_id;
-                mRegistro.bitacora_transaccion_id = 5;
-                mRegistro.bitacora_criticidad = 2;
-                BitacoraBL.Guardar(mRegistro);
-            }
-            catch (EmailYaExisteException)
-            {
-                Response.Write("<script>alert('El email ya existe')</script>");
-            }
-            catch (Exception Ex)
-            {
-                Response.Write("<script>alert('" + Ex.Message + "')</script>");
-            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            CuentaUsuarioBL.Eliminar(mUsuarioSeleccionado);
-            txtEmail.Text = null;
-            txtNombre.Text = null;
-            Actualizar();
+
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            mUsuarioSeleccionado.Cuenta_usuario_username = mCripto.EncriptarReversible(txtNombre.Text);
-            mUsuarioSeleccionado.Cuenta_usuario_email = txtEmail.Text;
-            CuentaUsuarioBL.Guardar(mUsuarioSeleccionado);
-            txtEmail.Text = null;
-            txtNombre.Text = null;
-            Actualizar();
+
         }
 
         protected void grdPatentes_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,12 +136,6 @@ namespace GlobalLogistics
             mPermisoSeleccionado = mPermisos[grdPatentes.SelectedIndex];
             Session["PermisoSeleccionado"] = mPermisoSeleccionado;
             grdPatentes.SelectedRow.BackColor = Color.Aquamarine;
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            mUsuarioSeleccionado.Permisos.Add(mPermisoSeleccionado);
-            PermisoBL.GuardarPermisos(mUsuarioSeleccionado);
         }
 
         protected void btnRemoverPermiso_Click(object sender, EventArgs e)
@@ -192,7 +150,60 @@ namespace GlobalLogistics
             Session["PermisoAsignadoSeleccionado"] = mPermisoAsignadoSeleccionado;
             Session["IndexPermisoAsignadoSeleccionado"] = grdPatAsignadas.SelectedIndex;
             grdPatAsignadas.SelectedRow.BackColor = Color.Aquamarine;
-            
+        }
+
+        protected void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                CuentaUsuarioBL.ValidarEmail(txtEmail.Value);
+                CuentaUsuario mCuenta = new CuentaUsuario();
+                mCuenta.Cuenta_fecha_alta = DateTime.Now;
+                mCuenta.Cuenta_usuario_username = mCripto.EncriptarReversible(txtNombre.Value);
+                mCuenta.Cuenta_usuario_email = txtEmail.Value;
+                mCuenta.Cuenta_usuario_password = mCripto.EncriptarIrreversible("12345678");
+                CuentaUsuarioBL.Guardar(mCuenta);
+                Response.Write("<script>alert('Usuario generado')</script>");
+            }
+            catch (EmailYaExisteException)
+            {
+                Response.Write("<script>alert('El email ya existe')</script>");
+            }
+            catch (Exception Ex)
+            {
+                Response.Write("<script>alert('" + Ex.Message + "')</script>");
+            }
+        }
+
+        protected void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            mUsuarioSeleccionado.Cuenta_usuario_username = mCripto.EncriptarReversible(txtNombre.Value);
+            mUsuarioSeleccionado.Cuenta_usuario_email = txtEmail.Value;
+            CuentaUsuarioBL.Guardar(mUsuarioSeleccionado);
+            txtEmail.Value = null;
+            txtNombre.Value = null;
+            Actualizar();
+        }
+
+        protected void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            CuentaUsuarioBL.Eliminar(mUsuarioSeleccionado);
+            txtEmail.Value = null;
+            txtNombre.Value = null;
+            Actualizar();
+        }
+
+        //Control para obtener del site.master
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
+
+        protected void btnAgregarPermiso(object sender, EventArgs e)
+        {
+            mUsuarioSeleccionado.Permisos.Add(mPermisoSeleccionado);
+            PermisoBL.GuardarPermisos(mUsuarioSeleccionado);
         }
     }
 }

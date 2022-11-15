@@ -15,6 +15,15 @@ namespace GlobalLogistics
     {
 
         /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// Control form1.
         /// </summary>
         /// <remarks>
@@ -39,7 +48,7 @@ namespace GlobalLogistics
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
 
         /// <summary>
         /// Control txtEmail.
@@ -48,34 +57,34 @@ namespace GlobalLogistics
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
 
         /// <summary>
-        /// Control btnAgregar.
+        /// Control btnAgregarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        protected global::System.Web.UI.WebControls.Button btnAgregarUsuario;
 
         /// <summary>
-        /// Control btnEliminar.
+        /// Control btnModificarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.WebControls.Button btnModificarUsuario;
 
         /// <summary>
-        /// Control btnModificar.
+        /// Control btnEliminarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnEliminarUsuario;
 
         /// <summary>
         /// Control grdPatentes.
@@ -87,13 +96,13 @@ namespace GlobalLogistics
         protected global::System.Web.UI.WebControls.GridView grdPatentes;
 
         /// <summary>
-        /// Control Button1.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
 
         /// <summary>
         /// Control grdPatAsignadas.

@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GlobalLogistics</RootNamespace>
     <AssemblyName>GlobalLogistics</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44386</IISExpressSSLPort>
@@ -102,10 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ABMProductoOLD.aspx" />
-    <Content Include="ABMUsuario.aspx" />
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
-    <Content Include="ListarUsuarios.aspx" />
     <Content Include="ProductoClienteUI.aspx" />
     <Content Include="ProductoUI.aspx" />
     <Content Include="MenuPrincipalUI.aspx" />
@@ -126,13 +124,6 @@
     <Compile Include="ABMProductoOLD.aspx.designer.cs">
       <DependentUpon>ABMProductoOLD.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ABMUsuario.aspx.cs">
-      <DependentUpon>ABMUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ABMUsuario.aspx.designer.cs">
-      <DependentUpon>ABMUsuario.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BackupRestore.aspx.cs">
       <DependentUpon>BackupRestore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,13 +142,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="ListarUsuarios.aspx.cs">
-      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ListarUsuarios.aspx.designer.cs">
-      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="CambiarContrasenia.aspx.cs">
       <DependentUpon>CambiarContrasenia.aspx</DependentUpon>
