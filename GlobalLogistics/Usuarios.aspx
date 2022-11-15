@@ -25,12 +25,13 @@
         <br />
         Todos los permisos<asp:GridView ID="grdPatentes" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdPatentes_SelectedIndexChanged">
         </asp:GridView>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agregar Permiso" />
         <br />
         <br />
         Patentes asignadas<br />
-        <asp:GridView ID="grdPatAsignadas" runat="server">
+        <asp:GridView ID="grdPatAsignadas" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="grdPatAsignadas_SelectedIndexChanged">
         </asp:GridView>
+        <asp:Button ID="btnRemoverPermiso" runat="server" Text="Remover Permiso" OnClick="btnRemoverPermiso_Click" />
         <br />
     </form>
 </body>

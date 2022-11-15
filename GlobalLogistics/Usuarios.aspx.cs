@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BE;
@@ -19,13 +20,16 @@ namespace GlobalLogistics
         CuentaUsuario mUsuarioSeleccionado;
         ComponentePermiso mPermisoSeleccionado;
         List<ComponentePermiso> mPermisos;
+        ComponentePermiso mPermisoAsignadoSeleccionado;
+        int indexPermisoAsignadoSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
             Actualizar();
             ActualizarPermisos();
             mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
             mPermisoSeleccionado = (ComponentePermiso)Session["PermisoSeleccionado"];
-            if (Session["IndexUsuSeleccionado"]!=null) grdUsuarios.SelectedIndex = int.Parse(Session["IndexUsuSeleccionado"].ToString());
+            mPermisoAsignadoSeleccionado = (ComponentePermiso)Session["PermisoAsignadoSeleccionado"];
+            if (Session["IndexPermisoAsignadoSeleccionado"] != null) indexPermisoAsignadoSeleccionado = int.Parse(Session["IndexPermisoAsignadoSeleccionado"].ToString());
         }
 
         public void Actualizar()
@@ -129,10 +133,10 @@ namespace GlobalLogistics
             {
                 Response.Write("<script>alert('El email ya existe')</script>");
             }
-            //catch(Exception Ex)
-            //{
-             //   Response.Write("<script>alert('" + Ex.Message + "')</script>");
-            //}
+            catch (Exception Ex)
+            {
+                Response.Write("<script>alert('" + Ex.Message + "')</script>");
+            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -164,6 +168,20 @@ namespace GlobalLogistics
         {
             mUsuarioSeleccionado.Permisos.Add(mPermisoSeleccionado);
             PermisoBL.GuardarPermisos(mUsuarioSeleccionado);
+        }
+
+        protected void btnRemoverPermiso_Click(object sender, EventArgs e)
+        {
+            mUsuarioSeleccionado.Permisos.Remove(mUsuarioSeleccionado.Permisos[indexPermisoAsignadoSeleccionado]);
+            PermisoBL.GuardarPermisos(mUsuarioSeleccionado);
+        }
+
+        protected void grdPatAsignadas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mPermisoAsignadoSeleccionado = mUsuarioSeleccionado.Permisos[grdPatAsignadas.SelectedIndex];
+            Session["PermisoAsignadoSeleccionado"] = mPermisoAsignadoSeleccionado;
+            Session["IndexPermisoAsignadoSeleccionado"] = grdPatAsignadas.SelectedIndex;
+            
         }
     }
 }

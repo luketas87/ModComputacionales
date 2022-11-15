@@ -152,7 +152,7 @@ h1 {
                                         </a>
 
                                         <!--Asignar Permisos-->
-                                        <a class="nav-link" href="register.html">
+                                        <a class="nav-link" href="register.html" id="a_permisos">
                                             <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
                                             Asignar Permisos
                                         </a>
