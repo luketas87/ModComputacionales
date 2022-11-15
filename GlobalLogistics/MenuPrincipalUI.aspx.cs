@@ -18,8 +18,12 @@ namespace GlobalLogistics
             mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
             bool validacion = PermisoBL.ValidarPermiso(mUsuarioLogueado, 5);
             //Response.Write("<script>alert('Usuario logueado: " + validacion.ToString() + "') </script>");
-            
+
         }
+
+
+
+
         /*CuentaUsuario mCuentaUsuario;
         //string mUsuarioLogueado;
         Encriptador mCripto = new Encriptador();
@@ -116,6 +120,6 @@ namespace GlobalLogistics
             }
         }*/
     }
-}
+    }
 
 

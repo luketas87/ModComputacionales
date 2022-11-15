@@ -7,11 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace GlobalLogistics
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class Logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           // Response.AddHeader("REFRESH", "2;URL=login.aspx");
         }
+
+
     }
 }

@@ -101,7 +101,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ABMProductoOLD.aspx" />
     <Content Include="BackupRestore.aspx" />
     <Content Include="Bitacora.aspx" />
     <Content Include="ProductoClienteUI.aspx" />
@@ -117,13 +116,6 @@
     <Content Include="WSGlobalLogistics.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMProductoOLD.aspx.cs">
-      <DependentUpon>ABMProductoOLD.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ABMProductoOLD.aspx.designer.cs">
-      <DependentUpon>ABMProductoOLD.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BackupRestore.aspx.cs">
       <DependentUpon>BackupRestore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

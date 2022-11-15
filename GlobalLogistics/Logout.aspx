@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GlobalLogistics.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="GlobalLogistics.Logout" %>
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +71,7 @@ body{
 }
 
 .header span {
-            color: #0043ff /*!important*/;
+            color: rgba(255,255,255,0.9) /*!important*/;
 }
 
 .login{
@@ -153,23 +153,26 @@ body{
 }
 
 ::-moz-input-placeholder{
-   color: rgba(255,255,255,0.6);
+   color: rgba(252,255,255,0.6);
 }
 </style>
 
     <script src="js/prefixfree.min.js"></script>
-
+	<META http-equiv="refresh" content="2;URL=Login.aspx">
 </head>
 
 <body>
 
-    <form id="form1" runat="server">
+    <form id="Logout" runat="server">
 
   <div class="body"></div>
 		<div class="grad">
             </div>
 		<div class="header">
 			<div>Se está cerrando sesión en el sistema.</div>
+			<input type="hidden" name="del" id="del" value=""/>
+
+			
 		</div>
     </form>
 </body>
