@@ -85,10 +85,10 @@
                                     </a>
 
                                        <!--Bitacora-->
-                                    <a class="nav-link" href="Bitacora.aspx">
+                                    <%--<a class="nav-link" href="Bitacora.aspx">--%>
                                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                       Bitacora
-                                    </a>
+                                        <asp:Button ID="btnBitacora" runat="server" Text="Bitacora" BackColor="#212529" ForeColor="White" OnClick="btnBitacora_Click" />
+                                    <%--</a>--%>
 
                                     <!--Bitácora colapsado-->
                              <%--       <a class="nav-link collapsed" href="Bitacora.aspx" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

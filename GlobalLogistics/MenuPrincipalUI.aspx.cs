@@ -16,12 +16,24 @@ namespace GlobalLogistics
         {
             int id = int.Parse(Session["IDUsuario"].ToString());
             mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+            Label1.Text = mUsuarioLogueado.Cuenta_usuario_email;
             bool validacion = PermisoBL.ValidarPermiso(mUsuarioLogueado, 5);
             //Response.Write("<script>alert('Usuario logueado: " + validacion.ToString() + "') </script>");
-
+            if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 4)) 
+                btnBitacora.Visible = true; 
+            else btnBitacora.Visible = false;
         }
 
+        protected void btnBitacora_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Bitacora.aspx");
+        }
 
+        //Control para obtener del site.master
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+
+        }
 
 
         /*CuentaUsuario mCuentaUsuario;
