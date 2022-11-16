@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
@@ -16,8 +17,26 @@ namespace GlobalLogistics
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ActualizarPatentes();
-            ActualizarFamilias();
+            if (!(Session["IDUsuario"] is null))
+            {
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if(PermisoBL.ValidarPermiso(mUsuarioLogueado, 10))
+                {
+                    ActualizarPatentes();
+                    ActualizarFamilias();
+                }
+                else
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+
         }
         IList<Patente> mPermisos = new List<Patente>();
 

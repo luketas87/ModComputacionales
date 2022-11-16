@@ -15,8 +15,24 @@ namespace GlobalLogistics
         List<BE.Bitacora> mBitacora = new List<BE.Bitacora>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Actualizar();
-            
+            if (!(Session["IDUsuario"] is null))
+            {
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 5))
+                {
+                    Actualizar();
+                }
+                else
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void Actualizar()

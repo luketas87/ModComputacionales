@@ -70,24 +70,24 @@
 
 
                                     <!--Administrar usuarios-->
-                                    <a class="nav-link" href="Usuarios.aspx">
+                                    <a runat="server" id="AdmUsuarios" class="nav-link" href="Usuarios.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                                         Administrar Usuarios
                                     </a>
 
                                     <!--Asignar Permisos-->
-                                    <a class="nav-link" href="PermisosUI.aspx">
+                                    <a runat="server" id="AsignarPermisos" class="nav-link" href="PermisosUI.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
                                         Asignar Permisos
                                     </a>
 
                                     <!--DVH-->
-                                    <a class="nav-link" href="Verificadores.aspx">
+                                    <a runat="server" id="RecDigitos" class="nav-link" href="Verificadores.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
                                         Recalcular DVH
                                     </a>
                                     <!--Backup & Restore-->
-                                    <a class="nav-link" href="BackupRestore.aspx">
+                                    <a runat="server" id="BackRestore" class="nav-link" href="BackupRestore.aspx">
                                         <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                                         Backup & Restore
                                     </a>

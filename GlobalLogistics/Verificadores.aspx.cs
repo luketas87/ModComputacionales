@@ -14,23 +14,40 @@ namespace GlobalLogistics
         Dictionary<string, string> mCorrupcionBD;
         protected void Page_Load(object sender, EventArgs e)
         {
-            mCorrupcionBD = new Dictionary<string, string>();
-            if (this.Session["DVV"] as List<string> != null)
-            { 
-                foreach (string x in this.Session["DVV"] as List<string>)
-                    {
-                        mCorrupcionBD.Add(x, "DVV");
-                    }
-            }
-            if (this.Session["DVH"] as List<string> != null)
+            if (!(Session["IDUsuario"] is null))
             {
-                foreach (string x in this.Session["DVH"] as List<string>)
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 7))
                 {
-                    mCorrupcionBD.Add(x, "DVH");
+                    mCorrupcionBD = new Dictionary<string, string>();
+                    if (this.Session["DVV"] as List<string> != null)
+                    {
+                        foreach (string x in this.Session["DVV"] as List<string>)
+                        {
+                            mCorrupcionBD.Add(x, "DVV");
+                        }
+                    }
+                    if (this.Session["DVH"] as List<string> != null)
+                    {
+                        foreach (string x in this.Session["DVH"] as List<string>)
+                        {
+                            mCorrupcionBD.Add(x, "DVH");
+                        }
+                    }
+                    GridView1.DataSource = mCorrupcionBD;
+                    GridView1.DataBind();
                 }
+                else
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
+
             }
-            GridView1.DataSource = mCorrupcionBD;
-            GridView1.DataBind();
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
         protected void btnRecalcularDigitos_Click(object sender, EventArgs e)
         {

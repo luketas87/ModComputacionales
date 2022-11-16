@@ -14,14 +14,26 @@ namespace GlobalLogistics
         CuentaUsuario mUsuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Session["IDUsuario"].ToString());
-            mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
-            Label1.Text = mUsuarioLogueado.Cuenta_usuario_email;
-            bool validacion = PermisoBL.ValidarPermiso(mUsuarioLogueado, 5);
-            //Response.Write("<script>alert('Usuario logueado: " + validacion.ToString() + "') </script>");
-            if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 4)) 
-                btnBitacora.Visible = true; 
-            else btnBitacora.Visible = false;
+            if(true )//!(Session["IDUsuario"] is null))
+            {
+                int id = 1;//int.Parse(Session["IDUsuario"].ToString());
+                mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                Label1.Text = mUsuarioLogueado.Cuenta_usuario_email;
+                CargarBotonesOperaciones(mUsuarioLogueado);
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        private void CargarBotonesOperaciones(CuentaUsuario mUsuarioLogueado)
+        {
+            btnBitacora.Visible = PermisoBL.ValidarPermiso(mUsuarioLogueado, 4);
+            AdmUsuarios.Visible = PermisoBL.ValidarPermiso(mUsuarioLogueado, 5);
+            AsignarPermisos.Visible = PermisoBL.ValidarPermiso(mUsuarioLogueado, 10);
+            BackRestore.Visible = PermisoBL.ValidarPermiso(mUsuarioLogueado, 9) || PermisoBL.ValidarPermiso(mUsuarioLogueado, 6);
+            RecDigitos.Visible = PermisoBL.ValidarPermiso(mUsuarioLogueado, 7);
         }
 
         protected void btnBitacora_Click(object sender, EventArgs e)

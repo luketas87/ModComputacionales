@@ -24,12 +24,29 @@ namespace GlobalLogistics
         int indexPermisoAsignadoSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Actualizar();
-            ActualizarPermisos();
-            mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
-            mPermisoSeleccionado = (ComponentePermiso)Session["PermisoSeleccionado"];
-            mPermisoAsignadoSeleccionado = (ComponentePermiso)Session["PermisoAsignadoSeleccionado"];
-            if (Session["IndexPermisoAsignadoSeleccionado"] != null) indexPermisoAsignadoSeleccionado = int.Parse(Session["IndexPermisoAsignadoSeleccionado"].ToString());
+            if (!(Session["IDUsuario"] is null))
+            {
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 5))
+                {
+                    Actualizar();
+                    ActualizarPermisos();
+                    mUsuarioSeleccionado = (CuentaUsuario)Session["UsuSeleccionado"];
+                    mPermisoSeleccionado = (ComponentePermiso)Session["PermisoSeleccionado"];
+                    mPermisoAsignadoSeleccionado = (ComponentePermiso)Session["PermisoAsignadoSeleccionado"];
+                    if (Session["IndexPermisoAsignadoSeleccionado"] != null) indexPermisoAsignadoSeleccionado = int.Parse(Session["IndexPermisoAsignadoSeleccionado"].ToString());
+                }
+                else
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void Actualizar()

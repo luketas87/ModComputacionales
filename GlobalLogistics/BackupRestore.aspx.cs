@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BE;
 using BLL;
 
 namespace GlobalLogistics
@@ -12,7 +13,24 @@ namespace GlobalLogistics
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(Session["IDUsuario"] is null))
+            {
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 9) || PermisoBL.ValidarPermiso(mUsuarioLogueado, 6))
+                {
+                    //OK
+                }
+                else
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
 
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void btnGenerar_Click(object sender, EventArgs e)
