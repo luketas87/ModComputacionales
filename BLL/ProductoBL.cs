@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 using BE;
 using DAL;
 
@@ -43,6 +45,13 @@ namespace BLL
         public static List<Producto> ListarClientes()
         {
             return ProductoDAL.ListarClientes();
+        }
+
+        public static List<Producto> LeerArchivo(Stream stream)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Producto>));
+            List<Producto> lista = (List<Producto>)serializer.Deserialize(stream);
+            return lista;
         }
     }
 }

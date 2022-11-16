@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Xml.Serialization;
 using System.Xml;
+using System.IO;
 
 namespace GlobalLogistics
 {
@@ -30,6 +31,7 @@ namespace GlobalLogistics
             //GridView1.DataBind();
             GridView2.DataSource = mProductos;
             GridView2.DataBind();
+            gridViewArchivo.Visible = false;
 
         }
 
@@ -109,7 +111,7 @@ namespace GlobalLogistics
             Response.Clear();
             byte[] byteArray = stream.ToArray();
             Response.ContentType = "application/force-download";
-            Response.AddHeader("content-disposition", "attachment; filename=Productos.txt");
+            Response.AddHeader("content-disposition", "attachment; filename=Productos.xml");
             Response.BinaryWrite(byteArray);
             Response.End();
             writer.Close();
@@ -122,9 +124,28 @@ namespace GlobalLogistics
             Actualizar();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+        protected void btnSubir_Click(object sender, EventArgs e)
         {
-            
+            if (btnImportar.HasFile)
+            {
+                Stream stream = btnImportar.FileContent;
+                List<Producto> listaProcesada = ProductoBL.LeerArchivo(stream);
+                gridViewArchivo.Visible = true;
+                gridViewArchivo.DataSource = listaProcesada;
+                gridViewArchivo.DataBind();
+            }
+            else
+            {
+                ViewState["result"] = "Error: No hay un archivo seleccionado";
+            }
+        }
+
+        protected void gridViewArchivo_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            //FillGrid();
+            gridViewArchivo.PageIndex = e.NewPageIndex;
+            gridViewArchivo.DataBind();
         }
     }
 }

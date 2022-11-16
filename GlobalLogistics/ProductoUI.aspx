@@ -293,6 +293,18 @@
                             </div>
                         </div>
                         <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" Height="28px" Width="68px" />
+                        <br />
+                        <asp:FileUpload ID="btnImportar" runat="server" Text="Importar .xml" Height="28px" Width="68px" />
+                        <asp:Button ID="btnSubir" runat="server" Text="Subir" Height="28px" Width="68px" OnClick="btnSubir_Click" />
+                        <br />
+
+                                <asp:GridView ID="gridViewArchivo" runat="server" AutoGenerateColumns="True" GridLines="None"
+                                    AllowPaging="true" CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" AutoGenerateSelectButton="True" OnPageIndexChanging="gridViewArchivo_PageIndexChanging">
+                                </asp:GridView>
+
+
+
+
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
