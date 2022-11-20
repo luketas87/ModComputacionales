@@ -12,12 +12,13 @@ namespace GlobalLogistics
     public partial class Verificadores : System.Web.UI.Page
     {
         Dictionary<string, string> mCorrupcionBD;
+        CuentaUsuario mUsuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!(Session["IDUsuario"] is null))
             {
                 int id = int.Parse(Session["IDUsuario"].ToString());
-                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
                 if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 7))
                 {
                     mCorrupcionBD = new Dictionary<string, string>();
@@ -40,7 +41,7 @@ namespace GlobalLogistics
                 }
                 else
                 {
-                    Response.Redirect("MenuPrincipal.aspx");
+                    Response.Redirect("MenuPrincipalUI.aspx");
                 }
 
             }

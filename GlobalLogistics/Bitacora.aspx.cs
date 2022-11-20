@@ -13,19 +13,20 @@ namespace GlobalLogistics
     {
 
         List<BE.Bitacora> mBitacora = new List<BE.Bitacora>();
+        CuentaUsuario mUsuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!(Session["IDUsuario"] is null))
             {
                 int id = int.Parse(Session["IDUsuario"].ToString());
-                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
                 if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 5))
                 {
                     Actualizar();
                 }
                 else
                 {
-                    Response.Redirect("MenuPrincipal.aspx");
+                    Response.Redirect("MenuPrincipalUI.aspx");
                 }
 
             }

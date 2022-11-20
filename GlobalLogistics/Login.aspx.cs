@@ -147,7 +147,7 @@ namespace GlobalLogistics
                     Session["DVH"] = mDVHCorruptos;
                     Session["DVV"] = mDVVCorruptos;
                     Session["BaseCorrupta"] = true;
-                    Response.Redirect("MenuPrincipalUI.aspx");
+                    Response.Redirect("Verificadores.aspx");
                 }
                 else
                 {
@@ -176,7 +176,7 @@ namespace GlobalLogistics
                 {
                     Session["DVH"] = mDVHCorruptos;
                     Session["DVV"] = mDVVCorruptos;
-                    Response.Redirect("MenuPrincipalUI.aspx");
+                    Response.Redirect("Verificadores.aspx");
                 }
                 else
                 {

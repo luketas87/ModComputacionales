@@ -18,10 +18,31 @@ namespace GlobalLogistics
     {
         List<Producto> mProductos = new List<Producto>();
         Producto mProductoSeleccionado;
+        List<Producto> listaProcesada;
+        CuentaUsuario mUsuarioLogueado;
         protected void Page_Load(object sender, EventArgs e)
         {
             Actualizar();
             if (Request.Cookies["ProductoSeleccionado"]!=null) mProductoSeleccionado = mProductos.Find(x => x.producto_id == int.Parse(Request.Cookies["ProductoSeleccionado"].Value));
+            if (Session["ProductosCargados"] != null) listaProcesada = (List<Producto>)Session["ProductosCargados"];
+            if (!(Session["IDUsuario"] is null))
+            {
+                int id = int.Parse(Session["IDUsuario"].ToString());
+                CuentaUsuario mUsuarioLogueado = CuentaUsuarioBL.Obtener((int)id, true);
+                if (PermisoBL.ValidarPermiso(mUsuarioLogueado, 9) || PermisoBL.ValidarPermiso(mUsuarioLogueado, 6))
+                {
+                    //OK
+                }
+                else
+                {
+                    Response.Redirect("MenuPrincipalUI.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void Actualizar()
@@ -130,9 +151,10 @@ namespace GlobalLogistics
             if (btnImportar.HasFile)
             {
                 Stream stream = btnImportar.FileContent;
-                List<Producto> listaProcesada = ProductoBL.LeerArchivo(stream);
+                listaProcesada = ProductoBL.LeerArchivo(stream);
                 gridViewArchivo.Visible = true;
                 gridViewArchivo.DataSource = listaProcesada;
+                Session["ProductosCargados"] = listaProcesada;
                 gridViewArchivo.DataBind();
             }
             else
@@ -146,6 +168,26 @@ namespace GlobalLogistics
             //FillGrid();
             gridViewArchivo.PageIndex = e.NewPageIndex;
             gridViewArchivo.DataBind();
+        }
+
+        protected void btnGuardarimportado_Click(object sender, EventArgs e)
+        {
+            foreach(Producto p in listaProcesada)
+            {
+                Producto aux = ProductoBL.Obtener(p.producto_nombre);
+                if(aux == null) {
+                    p.producto_id = 0;
+                    ProductoBL.Guardar(p);
+                }
+                else
+                {
+                    aux.producto_stock = p.producto_stock;
+                    ProductoBL.Guardar(aux);
+                }
+                
+            }
+            Actualizar();
+
         }
     }
 }

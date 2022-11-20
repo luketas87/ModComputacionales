@@ -23,7 +23,7 @@ namespace GlobalLogistics
                 }
                 else
                 {
-                    Response.Redirect("MenuPrincipal.aspx");
+                    Response.Redirect("MenuPrincipalUI.aspx");
                 }
 
             }

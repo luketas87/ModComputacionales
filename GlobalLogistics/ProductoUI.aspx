@@ -296,6 +296,7 @@
                         <br />
                         <asp:FileUpload ID="btnImportar" runat="server" Text="Importar .xml" Height="28px" Width="68px" />
                         <asp:Button ID="btnSubir" runat="server" Text="Subir" Height="28px" Width="68px" OnClick="btnSubir_Click" />
+                        <asp:Button ID="btnGuardarImportado" runat="server" Text="Guardar importados" Height="28px" Width="102px" OnClick="btnGuardarimportado_Click" />
                         <br />
 
                                 <asp:GridView ID="gridViewArchivo" runat="server" AutoGenerateColumns="True" GridLines="None"
